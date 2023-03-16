@@ -1,0 +1,8 @@
+.inputTextDesign{
+
+    width: 12em;
+    height: 2em;
+    border: 0.2em solid rgb(98, 84, 193);
+    border-radius: 0.5em;
+    margin: 1em;
+}

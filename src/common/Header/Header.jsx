@@ -10,4 +10,4 @@ export const Header = () => {
       <Navigator ruta={"Register"} destino={"/register"}/>
     </div>
   )
-}
+  }

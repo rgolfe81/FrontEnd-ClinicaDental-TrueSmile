@@ -10,4 +10,4 @@ export const Navigator = ({ruta, destino}) => {
       {ruta}
     </div>
   );
-};
+}

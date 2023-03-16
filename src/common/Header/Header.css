@@ -1,0 +1,10 @@
+.headerDesign{
+    width: 100vw;
+    height: 20vh;
+    background-color: rgb(98, 84, 193);
+
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

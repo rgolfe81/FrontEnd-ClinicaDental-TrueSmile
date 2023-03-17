@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { InputText } from "../../common/InputText/InputText";
+import { checkInputs } from "../../helpers/useful";
 import "./Login.css";
 
 export const Login = () => {
@@ -18,7 +19,10 @@ export const Login = () => {
     setCredenciales((preveState => ({...preveState, [e.target.name]: e.target.value,})));
   };
 
-  
+  const inputValidate = (e) => {
+    checkInputs(e, credenciales, setCredencialesError, setIsEmailValid, setIsPasswordValid);
+  }
+
   useEffect(()=>{
     console.log("Credenciales vale : ", credenciales);
 }, [credenciales]);

@@ -5,6 +5,7 @@ export const InputText = ({
     className,
     type,
     placeholder,
+    required,
     name,
     changeFunction,
     blurValidateFunction
@@ -15,6 +16,7 @@ export const InputText = ({
         className={className}
         type={type}
         placeholder={placeholder}
+        required={required}
         name={name}
         // Se ejecuta cuando vamos cambiando el valor del input
         onChange={(e) => changeFunction(e)}

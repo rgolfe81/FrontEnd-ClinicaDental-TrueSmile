@@ -93,7 +93,7 @@ const fakeLoginFunction = () => {
         }
         type="email"
         name="email"
-        placeholder="escribe un email"
+        placeholder="Escribe el email"
         required={true}
         changeFunction={(e) => inputHandler(e)}
         blurValidateFunction={(e) => inputValidate(e)}
@@ -107,7 +107,8 @@ const fakeLoginFunction = () => {
         }
         type="password"
         name="password"
-        placeholder="escribe el password"
+        placeholder="Escribe la contraseña"
+        required={true}
         changeFunction={(e) => inputHandler(e)}
         blurValidateFunction={(e) => inputValidate(e)}
       />

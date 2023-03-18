@@ -2,8 +2,7 @@ export const checkInputs = (name, data, required) => {
   switch (name) {
     case "name":
     case "surname":
-
-      if (data === "" && required === true) {      
+      if (data === "" && required === true) {
         return {message: "El campo no puede estar vacío", validated: false};
       } else if (!/[a-z]/gi.test(data)) {
         return {message: "El valor introducido no es correcto", validated: false};
@@ -11,7 +10,9 @@ export const checkInputs = (name, data, required) => {
       return {message: "", validated: true};
 
     case "email":
+      console.log("data1 : "+data, "required1 : "+required)
       if (data === "" && required === true) {
+        console.log("data2 : "+data, "required2 : "+required)   
         return {message: "El campo no puede estar vacío", validated: false};
       } else if (
         !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(data)

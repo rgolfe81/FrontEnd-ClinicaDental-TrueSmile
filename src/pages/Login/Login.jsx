@@ -75,7 +75,7 @@ const inputValidate = (e) => {
   }));
 };
 
-// Prueba de login haste que podamos acceder al token
+// Prueba de login hasta que podamos acceder al token
 const fakeLoginFunction = () => {
   console.log("Te has logeado");
 };
@@ -98,7 +98,7 @@ const fakeLoginFunction = () => {
         changeFunction={(e) => inputHandler(e)}
         blurValidateFunction={(e) => inputValidate(e)}
       />
-        <div>{credencialesError.emailError}</div>
+      <div>{credencialesError.emailError}</div>
       <InputText
         className={
           credencialesError.passwordError === ""

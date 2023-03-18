@@ -19,25 +19,6 @@
     margin-top: 2em;
 }
 
-.buttonOn{
-    width: 5em;
-    height: 2em;
-    margin-top: 2em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color:  rgb(98, 84, 193);
-    color: white;
-    border-radius: 0.3em;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.buttonOn:hover{
-    background-color:  rgb(66, 52, 154);
-    transition: 0.3s;
-}
-
 .buttonOff{
     width: 5em;
     height: 2em;
@@ -48,5 +29,14 @@
     background-color:  rgb(156, 151, 192);
     color: white;
     border-radius: 0.3em;
+}
 
+.buttonOn{
+    background-color:  rgb(98, 84, 193);
+    cursor: pointer;
+}
+
+.buttonOn:hover{
+    background-color:  rgb(66, 52, 154);
+    transition: 0.5s;
 }

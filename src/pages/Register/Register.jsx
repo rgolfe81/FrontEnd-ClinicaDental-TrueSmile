@@ -93,7 +93,7 @@ const inputValidate = (e) => {
 
 // Prueba de registro hasta que podamos acceder al token
 const fakeRegisterFunction = () => {
-  console.log("Te has logeado");
+  console.log("Te has registrado");
 };
 
   return (
@@ -108,6 +108,7 @@ const fakeRegisterFunction = () => {
             : "inputBasicDesign inputErrorDesign"
         }
         type="text"
+        maxLength="9"
         name="dni"
         placeholder="Escribe el DNI"
         required={true}
@@ -122,6 +123,7 @@ const fakeRegisterFunction = () => {
             : "inputBasicDesign inputErrorDesign"
         }
         type="text"
+        maxLength="30"
         name="name"
         placeholder="Escribe tu nombre"
         required={true}
@@ -136,6 +138,7 @@ const fakeRegisterFunction = () => {
             : "inputBasicDesign inputErrorDesign"
         }
         type="text"
+        maxLength="40"
         name="surname"
         placeholder="Escribe tus apellidos"
         required={false}
@@ -150,6 +153,7 @@ const fakeRegisterFunction = () => {
             : "inputBasicDesign inputErrorDesign"
         }
         type="text"
+        maxLength="30"
         name="city"
         placeholder="Escribe tu ciudad"
         required={false}
@@ -164,6 +168,7 @@ const fakeRegisterFunction = () => {
             : "inputBasicDesign inputErrorDesign"
         }
         type="text"
+        maxLength="9"
         name="phone"
         placeholder="Escribe tu número de teléfono"
         required={false}
@@ -178,6 +183,7 @@ const fakeRegisterFunction = () => {
             : "inputBasicDesign inputErrorDesign"
         }
         type="email"
+        maxLength="50"
         name="email"
         placeholder="Escribe el email"
         required={true}
@@ -192,6 +198,7 @@ const fakeRegisterFunction = () => {
             : "inputBasicDesign inputErrorDesign"
         }
         type="password"
+        maxLength="30"
         name="password"
         placeholder="Escribe la contraseña"
         required={true}

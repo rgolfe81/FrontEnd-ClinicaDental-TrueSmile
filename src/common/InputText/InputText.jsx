@@ -4,6 +4,7 @@ import "./InputText.css";
 export const InputText = ({
     className,
     type,
+    maxLength,
     placeholder,
     required,
     name,
@@ -15,6 +16,7 @@ export const InputText = ({
     <input
         className={className}
         type={type}
+        maxLength={maxLength}
         placeholder={placeholder}
         required={required}
         name={name}

@@ -2,17 +2,16 @@ export const checkInputs = (name, data, required) => {
   switch (name) {
     case "name":
     case "surname":
+    case "city":
       if (data === "" && required === true) {
         return {message: "El campo no puede estar vacío", validated: false};
-      } else if (!/[a-z]/gi.test(data)) {
+      } else if (!/^[a-zA-ZáéíóúüñÑÁÉÍÓÚ ]*-?$/.test(data)) {
         return {message: "El valor introducido no es correcto", validated: false};
       }
       return {message: "", validated: true};
 
     case "email":
-      console.log("data1 : "+data, "required1 : "+required)
-      if (data === "" && required === true) {
-        console.log("data2 : "+data, "required2 : "+required)   
+      if (data === "" && required === true) {   
         return {message: "El campo no puede estar vacío", validated: false};
       } else if (
         !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(data)
@@ -25,19 +24,26 @@ export const checkInputs = (name, data, required) => {
       if (data === "" && required === true) {
         return {message: "El campo no puede estar vacío", validated: false};
       } else if (data.length < 6) {
-        return {message: "La contraseña debe tener al menos 6 dígitos", validated: false};
+        return {message: "La contraseña debe tener al menos 6 caracteres", validated: false};
       }
       return {message: "", validated: true};
 
     case "phone":
-    case "tfno":
-    case "telefono":
-    case "phonenumber":
+      if (data === "" && required === true){
+        return {message: "El campo no puede estar vacío", validated: false};
+      } else if (!/^(?:\d{9})?$/.test(data)){
+        return {message: "El formato del teléfono debe tener 9 dígitos"}
+      }
+      return {message: "", validated: true};
       break;
 
     case "dni":
-    case "document":
-    case "nif":
+      if (data === "" && required === true){
+        return {message: "El campo no puede estar vacío", validated: false};
+      } else if (!/^\d{8}[A-Z]$/.test(data) && !/^[XYZ]\d{7}[A-Z]$/.test(data)){
+        return {message: "Formato DNI incorrecto", validated: false};
+      }
+      return {message: "", validated: true};
       break;
 
     default:

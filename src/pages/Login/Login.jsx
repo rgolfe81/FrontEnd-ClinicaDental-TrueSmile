@@ -92,6 +92,7 @@ const fakeLoginFunction = () => {
             : "inputBasicDesign inputErrorDesign"
         }
         type="email"
+        maxLength="50"
         name="email"
         placeholder="Escribe el email"
         required={true}
@@ -106,6 +107,7 @@ const fakeLoginFunction = () => {
             : "inputBasicDesign inputErrorDesign"
         }
         type="password"
+        maxLength="30"
         name="password"
         placeholder="Escribe la contraseña"
         required={true}

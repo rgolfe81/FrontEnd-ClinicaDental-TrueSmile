@@ -2,15 +2,17 @@ import React, { useEffect, useState } from "react";
 import { InputText } from "../../common/InputText/InputText";
 import { checkInputs } from "../../helpers/useful";
 import { logMe } from "../../services/apiCalls";
-import { useJwt } from "react-jwt";
 import "./Login.css";
 import { decodeToken } from "react-jwt";
-import { useDispatch } from "react-redux";
-import { login } from "../userSlice"
+import { useDispatch, useSelector } from "react-redux";
+import { login, userData } from "../userSlice"
+import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
 
+  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const credentialsRdx = useSelector(userData);
 
   // Hooks para validación de errores
 
@@ -59,6 +61,15 @@ export const Login = () => {
     setActiveForm(true);
   });
 
+  const [welcome, setWelcome] = useState("");
+
+  useEffect(() => {
+    if (credentialsRdx.credentials?.token) {
+      //Si no existe token, redireccionamos a Home
+      navigate("/");
+    }
+  }, []);
+
   // Llamada a la función control de errores de los inputs
 
 const inputValidate = (e) => {
@@ -70,7 +81,6 @@ const inputValidate = (e) => {
   );
   error = checked.message; 
   // Set del hook de las validaciones. Actualiza su estado anterior
-  console.log("Validado: ",credencialesIsValid)
   setCredencialesIsValid((prevState) => ({
     ...prevState,
     [e.target.name + "IsValid"]: checked.validated,
@@ -85,25 +95,34 @@ const inputValidate = (e) => {
 const logeame = () => {
   logMe(credenciales)
     .then(respuesta => {
-      let decodificado = decodeToken(respuesta.data)
-      console.log(decodificado);
+      let decodificado = decodeToken(respuesta.data.token)
+      let nameUser = respuesta.data.name
       let datosBackend = {
-        token: respuesta.data,
+        token: respuesta.data.token,      
         usuario: decodificado,
+        nameUser: nameUser,
       };
-      console.log (datosBackend);
+      console.log (respuesta.data);
+      console.log (respuesta.data.token);
+      console.log (decodificado);
       //Este es el momento en el que guardo en REDUX
       dispatch(login({ credentials: datosBackend }));
 
-      //Una vez nos hemos logeado...mostramos mensaje de bienvenida...
-      // setWelcome(`Hola ${datosBackend.usuario.name}`);
-
-      //Redirección a Home
-
-      // setTimeout(() => {
-      //   navigate("/");
-      // }, 3000);
+      //Mensaje después de Login
+      if (datosBackend.token){
+        setWelcome(`Hola ${nameUser} has iniciado sesión correctamente`);
+      setTimeout(() => {
+        navigate("/");
+      }, 3000);
+      }
+      else{
+        setWelcome(`Error: ${respuesta.data}`)
+        setTimeout(() => {
+          window.location.reload();
+        }, 3000);
+      }      
     })
+
     .catch((error) => console.log(error));
 };
 
@@ -112,6 +131,10 @@ const logeame = () => {
       <div className="titleDesign">
         <h2>Iniciar sesión</h2>
       </div>
+      {welcome !== "" ? (
+        <div>{welcome}</div>
+      ) : (
+      <>
       <InputText
         className={
           credencialesError.emailError === ""
@@ -145,6 +168,8 @@ const logeame = () => {
       <div className={activeForm ? "buttonOff buttonOn" : "buttonOff" } 
       onClick={activeForm ? () => {logeame();} : () => {} }>Login
       </div>
+      </>
+      )}
     </div>
   );
 };

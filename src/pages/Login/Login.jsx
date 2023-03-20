@@ -1,9 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { InputText } from "../../common/InputText/InputText";
 import { checkInputs } from "../../helpers/useful";
+import { logMe } from "../../services/apiCalls";
+import { useJwt } from "react-jwt";
 import "./Login.css";
+import { decodeToken } from "react-jwt";
+import { useDispatch } from "react-redux";
+import { login } from "../userSlice"
 
 export const Login = () => {
+
+  const dispatch = useDispatch();
 
   // Hooks para validación de errores
 
@@ -75,9 +82,29 @@ const inputValidate = (e) => {
   }));
 };
 
-// Prueba de login hasta que podamos acceder al token
-const fakeLoginFunction = () => {
-  console.log("Te has logeado");
+const logeame = () => {
+  logMe(credenciales)
+    .then(respuesta => {
+      let decodificado = decodeToken(respuesta.data)
+      console.log(decodificado);
+      let datosBackend = {
+        token: respuesta.data,
+        usuario: decodificado,
+      };
+      console.log (datosBackend);
+      //Este es el momento en el que guardo en REDUX
+      dispatch(login({ credentials: datosBackend }));
+
+      //Una vez nos hemos logeado...mostramos mensaje de bienvenida...
+      // setWelcome(`Hola ${datosBackend.usuario.name}`);
+
+      //Redirección a Home
+
+      // setTimeout(() => {
+      //   navigate("/");
+      // }, 3000);
+    })
+    .catch((error) => console.log(error));
 };
 
   return (
@@ -116,7 +143,7 @@ const fakeLoginFunction = () => {
       />
       <div>{credencialesError.passwordError}</div>
       <div className={activeForm ? "buttonOff buttonOn" : "buttonOff" } 
-      onClick={activeForm ? () => {fakeLoginFunction();} : () => {} }>Login
+      onClick={activeForm ? () => {logeame();} : () => {} }>Login
       </div>
     </div>
   );

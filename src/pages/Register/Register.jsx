@@ -18,13 +18,13 @@ export const Register = () => {
     password: "",
   });
   const [credencialesError, setCredencialesError] = useState({
-    dni: "",
-    name: "",
-    surname: "",
-    city: "",
-    phone: "",
-    email: "",
-    password: "",
+    dniError: "",
+    nameError: "",
+    surnameError: "",
+    cityError: "",
+    phoneError: "",
+    emailError: "",
+    passwordError: "",
   })
   const [credencialesIsValid, setCredencialesIsValid] = useState({
     dniIsValid: false,
@@ -118,7 +118,7 @@ const fakeRegisterFunction = () => {
       <div>{credencialesError.dniError}</div>
       <InputText
         className={
-          credencialesError.passwordError === ""
+          credencialesError.nameError === ""
             ? "inputBasicDesign"
             : "inputBasicDesign inputErrorDesign"
         }
@@ -133,7 +133,7 @@ const fakeRegisterFunction = () => {
       <div>{credencialesError.nameError}</div>
       <InputText
         className={
-          credencialesError.passwordError === ""
+          credencialesError.surnameError === ""
             ? "inputBasicDesign"
             : "inputBasicDesign inputErrorDesign"
         }
@@ -148,7 +148,7 @@ const fakeRegisterFunction = () => {
       <div>{credencialesError.surnameError}</div>
       <InputText
         className={
-          credencialesError.passwordError === ""
+          credencialesError.cityError === ""
             ? "inputBasicDesign"
             : "inputBasicDesign inputErrorDesign"
         }
@@ -163,7 +163,7 @@ const fakeRegisterFunction = () => {
       <div>{credencialesError.cityError}</div>
       <InputText
         className={
-          credencialesError.passwordError === ""
+          credencialesError.phoneError === ""
             ? "inputBasicDesign"
             : "inputBasicDesign inputErrorDesign"
         }

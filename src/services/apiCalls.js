@@ -7,6 +7,10 @@ export const logMe = async (body) => {
     return await axios.post(`${root}/auth/login`, body);
 } 
 
+export const registerMe = async (body) => {
+
+    return await axios.post(`${root}/auth/register`, body);
+}
 // export const bringUsers = async (token) => {
 //     let config = {
 //       headers: { 

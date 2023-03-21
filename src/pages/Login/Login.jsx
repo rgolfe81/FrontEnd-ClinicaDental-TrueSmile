@@ -65,7 +65,7 @@ export const Login = () => {
 
   useEffect(() => {
     if (credentialsRdx.credentials?.token) {
-      //Si no existe token, redireccionamos a Home
+      //Si ya existe toquen, redireccionamos a Home
       navigate("/");
     }
   }, []);
@@ -110,7 +110,7 @@ const logeame = () => {
 
       //Mensaje después de Login
       if (datosBackend.token){
-        setWelcome(`Hola ${nameUser} has iniciado sesión correctamente`);
+        setWelcome(`Hola ${nameUser}, has iniciado sesión correctamente`);
       setTimeout(() => {
         navigate("/");
       }, 3000);

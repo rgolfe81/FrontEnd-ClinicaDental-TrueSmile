@@ -1,10 +1,14 @@
 import React, { useState, useEffect} from 'react'
+import { useNavigate } from 'react-router-dom';
 import { InputText } from '../../common/InputText/InputText';
 import { checkInputs } from '../../helpers/useful';
+import { registerMe } from '../../services/apiCalls';
 import "./Register.css";
 
 
 export const Register = () => {
+
+  const navigate = useNavigate();
 
   // Hooks para validación de errores
 
@@ -91,9 +95,29 @@ const inputValidate = (e) => {
   }));
 };
 
-// Prueba de registro hasta que podamos acceder al token
-const fakeRegisterFunction = () => {
-  console.log("Te has registrado");
+const [welcome, setWelcome] = useState("");
+
+const registrame = () => {
+  registerMe(credenciales)
+  .then(respuesta => {
+    let nameUser = respuesta.data.name
+    console.log(respuesta);
+
+    if(nameUser){
+      setWelcome(`Enhorabuena ${nameUser}, te has registrado correctamente`);
+      setTimeout(() => {
+        navigate("/login");
+      }, 3000);
+    }
+    else{
+      setWelcome(`Error: ${respuesta.data}`)
+      setTimeout(() => {
+        window.location.reload();
+      }, 3000);
+    }
+  })
+
+  .catch((error) => console.log(error));
 };
 
   return (
@@ -101,6 +125,10 @@ const fakeRegisterFunction = () => {
       <div className="titleDesign">
         <h2>Registro Usuario</h2>
       </div>
+      {welcome !== "" ? (
+        <div>{welcome}</div>
+      ) : (
+        <>
       <InputText
         className={
           credencialesError.dniError === ""
@@ -207,8 +235,10 @@ const fakeRegisterFunction = () => {
       />
       <div>{credencialesError.passwordError}</div>
       <div className={activeForm ? "buttonOff buttonOn" : "buttonOff" } 
-      onClick={activeForm ? () => {fakeRegisterFunction();} : () => {} }>Registrarse
+      onClick={activeForm ? () => {registrame();} : () => {} }>Registrarse
       </div>
+      </>
+      )}
     </div>
   );
 };

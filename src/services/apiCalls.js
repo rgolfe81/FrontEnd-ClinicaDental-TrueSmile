@@ -11,12 +11,12 @@ export const registerMe = async (body) => {
 
     return await axios.post(`${root}/auth/register`, body);
 }
-// export const bringUsers = async (token) => {
-//     let config = {
-//       headers: { 
-//         'Authorization': 'Bearer '+ token,  
-//       }
-//     };
+export const bringProfile = async (token) => {
+    let config = {
+      headers: { 
+        'Authorization': 'Bearer '+ token,  
+      }
+    };
 
-//     return await axios.get(`${root}/api/users`, config);
-// }
+    return await axios.get(`${root}/user/profile`, config);
+}

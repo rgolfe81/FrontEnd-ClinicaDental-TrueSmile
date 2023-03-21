@@ -11,6 +11,8 @@ import { useNavigate } from "react-router-dom";
 export const Login = () => {
 
   const navigate = useNavigate();
+
+  // Variables Redux
   const dispatch = useDispatch();
   const credentialsRdx = useSelector(userData);
 
@@ -70,16 +72,15 @@ export const Login = () => {
     }
   }, []);
 
-  // Llamada a la función control de errores de los inputs
-
+// Llamada a la función control de errores de los inputs
 const inputValidate = (e) => {
   let error = "";
   let checked = checkInputs(
-    e.target.name,
-    e.target.value,
-    e.target.required
-  );
-  error = checked.message; 
+      e.target.name,
+      e.target.value,
+      e.target.required
+    );
+    error = checked.message; 
   // Set del hook de las validaciones. Actualiza su estado anterior
   setCredencialesIsValid((prevState) => ({
     ...prevState,
@@ -102,9 +103,7 @@ const logeame = () => {
         usuario: decodificado,
         nameUser: nameUser,
       };
-      console.log (respuesta.data);
-      console.log (respuesta.data.token);
-      console.log (decodificado);
+      
       //Este es el momento en el que guardo en REDUX
       dispatch(login({ credentials: datosBackend }));
 

@@ -83,7 +83,6 @@ const inputValidate = (e) => {
   );
   error = checked.message; 
   // Set del hook de las validaciones. Actualiza su estado anterior
-  console.log("Validado: ",credencialesIsValid)
   setCredencialesIsValid((prevState) => ({
     ...prevState,
     [e.target.name + "IsValid"]: checked.validated,
@@ -95,22 +94,20 @@ const inputValidate = (e) => {
   }));
 };
 
-const [welcome, setWelcome] = useState("");
+const [congratulations, setCongratulations] = useState("");
 
 const registrame = () => {
   registerMe(credenciales)
   .then(respuesta => {
     let nameUser = respuesta.data.name
-    console.log(respuesta);
-
     if(nameUser){
-      setWelcome(`Enhorabuena ${nameUser}, te has registrado correctamente`);
+      setCongratulations(`Enhorabuena ${nameUser}, te has registrado correctamente`);
       setTimeout(() => {
         navigate("/login");
       }, 3000);
     }
     else{
-      setWelcome(`Error: ${respuesta.data}`)
+      setCongratulations(`Error: ${respuesta.data}`)
       setTimeout(() => {
         window.location.reload();
       }, 3000);
@@ -125,8 +122,8 @@ const registrame = () => {
       <div className="titleDesign">
         <h2>Registro Usuario</h2>
       </div>
-      {welcome !== "" ? (
-        <div>{welcome}</div>
+      {congratulations !== "" ? (
+        <div>{congratulations}</div>
       ) : (
         <>
       <InputText

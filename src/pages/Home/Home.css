@@ -1,11 +1,18 @@
 .homeDesign {
-
     height: 80vh;
     width: 100vw;
-
     background-color: rgb(181, 181, 179);
-
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+.formatHome{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.buttonsAppointmentsDesign{
     display: flex;
     justify-content: space-around;
-    align-items: start;
+    width: 100%;
 }

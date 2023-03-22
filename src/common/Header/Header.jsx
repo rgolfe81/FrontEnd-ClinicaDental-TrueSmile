@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import { userData, userout } from '../../pages/userSlice'
 import { Navigator } from '../Navigator/Navigator'
 import "./Header.css"
@@ -8,15 +9,12 @@ export const Header = () => {
 
   const dispatch = useDispatch();
   const datosCredencialesRedux = useSelector(userData);
+  const navigate = useNavigate();
 
-  const handleLogout = () => {
-    dispatch(userout({}));
+  const logoutFunction = () => {
+    dispatch(userout({credentials:{}}));
+    navigate("/");
   };
-
-  // console.log(datosCredencialesRedux.credentials);
-  // useEffect(() => {
-  //   console.log('credenciales:', datosCredencialesRedux.credentials);
-  // }, [datosCredencialesRedux.credentials]);
 
   return (
     <div className='headerDesign'>
@@ -30,7 +28,7 @@ export const Header = () => {
       ):( 
       <>
       <Navigator ruta={"Perfil"} destino={"/profile"}/>
-      <Navigator ruta={"Logout"} destino={"/"} onClick={handleLogout}/>
+      <div className='navigatorDesign' onClick={()=>logoutFunction()}>Logout</div>
       </>
       )}
     </div>

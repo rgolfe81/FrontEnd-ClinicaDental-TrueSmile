@@ -103,6 +103,7 @@ const logeame = () => {
         usuario: decodificado,
         nameUser: nameUser,
       };
+      console.log(respuesta.data);
       
       //Este es el momento en el que guardo en REDUX
       dispatch(login({ credentials: datosBackend }));

@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { userData, userout } from '../../pages/userSlice'
@@ -29,6 +28,7 @@ export const Header = () => {
       <>
       <Navigator ruta={"Perfil"} destino={"/profile"}/>
       <div className='navigatorDesign' onClick={()=>logoutFunction()}>Logout</div>
+      <div>Usuario: {datosCredencialesRedux.credentials.nameUser}</div>
       </>
       )}
     </div>

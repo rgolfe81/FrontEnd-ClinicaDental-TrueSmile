@@ -6,6 +6,6 @@
     background-color: rgb(181, 181, 179);
 
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-around;
+    align-items: start;
 }

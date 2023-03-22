@@ -4,6 +4,7 @@ import { userData } from "../userSlice";
 import { useSelector } from 'react-redux';
 import { bringProfile } from '../../services/apiCalls';
 import "./Profile.css"
+import { Navigator } from '../../common/Navigator/Navigator';
 
 export const Profile = () => {
 
@@ -65,6 +66,10 @@ export const Profile = () => {
         </tr>
       </tbody>
     </Table>
+    </div>
+    <div className='AppointmentsButtonsDesign'>
+    <Navigator ruta={"Pedir cita"} destino={"/"} />
+    <Navigator ruta={"Ver mis citas"} destino={"/"} />
     </div>
   </div>
   )

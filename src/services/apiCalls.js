@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 const root = "http://localhost:3000"
+// const root = "https://clinica-truesmile-production-b948.up.railway.app"
 
 export const logMe = async (body) => {
 

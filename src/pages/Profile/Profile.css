@@ -18,7 +18,9 @@
     align-items: center;
     margin-top: 2em;
 }
-
+.AppointmentsButtonsDesign{
+    display: flex;
+}
 .tableDesign{
     display: flex;
     justify-content: center;

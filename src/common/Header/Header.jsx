@@ -17,20 +17,26 @@ export const Header = () => {
 
   return (
     <div className='headerDesign'>
+      <div className='buttonsNavigatorDesign'>
       <Navigator ruta={"Home"} destino={"/"}/>
-      {!datosCredencialesRedux.credentials.token 
-      ?(
-      <>
-      <Navigator ruta={"Login"} destino={"/login"} />
-      <Navigator ruta={"Registro"} destino={"/register"}/>
-      </>
-      ):( 
-      <>
-      <Navigator ruta={"Perfil"} destino={"/profile"}/>
-      <div className='navigatorDesign' onClick={()=>logoutFunction()}>Logout</div>
-      <div>Usuario: {datosCredencialesRedux.credentials.nameUser}</div>
-      </>
-      )}
+        {!datosCredencialesRedux.credentials.token 
+        ?(
+          <>
+          <Navigator ruta={"Login"} destino={"/login"} />
+          <Navigator ruta={"Registro"} destino={"/register"}/>
+          </>
+        ):( 
+          <>
+          <Navigator ruta={"Perfil"} destino={"/profile"}/>
+          <div className='navigatorDesign' onClick={()=>logoutFunction()}>Logout</div>
+          </>
+        )}
+      </div>
+      <div className="textUserDesign">
+        {datosCredencialesRedux.credentials.token ? (
+          <p>Usuario: {datosCredencialesRedux.credentials.nameUser}</p>
+        ) : null}
+      </div>
     </div>
   )
   }

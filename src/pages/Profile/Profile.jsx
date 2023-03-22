@@ -68,8 +68,8 @@ export const Profile = () => {
     </Table>
     </div>
     <div className='AppointmentsButtonsDesign'>
-    <Navigator ruta={"Pedir cita"} destino={"/"} />
-    <Navigator ruta={"Ver mis citas"} destino={"/"} />
+    <Navigator ruta={"Pedir cita"} destino={"/appointment"} />
+    <Navigator ruta={"Ver mis citas"} destino={"/myAppointments"} />
     </div>
   </div>
   )

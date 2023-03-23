@@ -17,10 +17,8 @@ export const userSlice = createSlice({
           ...state,
           ...action.payload
         }
-      }
-      
-    }
-    
+      }   
+    }    
 });
 
 export const { login, userout } = userSlice.actions;

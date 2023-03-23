@@ -4,12 +4,10 @@ import axios from 'axios';
 const root = "https://clinica-truesmile-production-b948.up.railway.app"
 
 export const logMe = async (body) => {
-
     return await axios.post(`${root}/auth/login`, body);
 } 
 
 export const registerMe = async (body) => {
-
     return await axios.post(`${root}/auth/register`, body);
 }
 export const bringProfile = async (token) => {
@@ -18,11 +16,23 @@ export const bringProfile = async (token) => {
         'Authorization': 'Bearer '+ token,  
       }
     };
-
     return await axios.get(`${root}/user/profile`, config);
 }
 
-export const addMeAppointment = async (body) => {
+export const addMeAppointment = async (body, token) => {
+  let config = {
+    headers: { 
+      'Authorization': 'Bearer '+ token,  
+    }
+  };
+  return await axios.post(`${root}/appointment/create`, body, config);
+}
 
-  return await axios.post(`${root}/appointment/create`, body);
+export const bringAppointments = async (token) => {
+  let config = {
+    headers: { 
+      'Authorization': 'Bearer '+ token,  
+    }
+  };
+  return await axios.get(`${root}/appointment/viewPatient`, config);
 }

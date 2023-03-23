@@ -10,27 +10,27 @@ import { checkInputs } from "../../helpers/useful";
 export const Appointment = () => {
 
   const navigate = useNavigate;
-  const [fecha, setFecha] = useState(new Date());
+  const [date, setDate] = useState(new Date());
 
   useEffect(()=>{
-    console.log("Fecha escogida: ", dayjs(fecha).format("dddd DD MM YYYY"));
-    let chooseDate = dayjs(fecha).format("dddd DD MM YYYY");
+    console.log("Fecha escogida: ", dayjs(date).format("dddd DD MM YYYY"));
+    let chooseDate = dayjs(date).format("dddd DD MM YYYY");
     console.log(chooseDate);
-  },[fecha]);
+  },[date]);
 
     // Hooks para validación de errores
 
     const [credenciales, setCredenciales] = useState({
-      service: "",
-      doctor: "",
+      dental_intervention_id: "",
+      doctor_id: "",
     });
     const [credencialesError, setCredencialesError] = useState({
-      serviceError: "",
-      doctorError: "",
+      dental_intervention_idError: "",
+      doctor_idError: "",
     })
     const [credencialesIsValid, setCredencialesIsValid] = useState({
-      serviceIsValid: false,
-      doctorIsValid: false,
+      dental_intervention_idIsValid: false,
+      doctor_idIsValid: false,
     })
       // Hook validación final que activa el botón de envío de datos
     const [activeForm, setActiveForm] = useState(false);
@@ -90,7 +90,7 @@ export const Appointment = () => {
   const [congratulations, setCongratulations] = useState("");
   
   const addAppointment = () => {
-    addMeAppointment(credenciales, fecha)
+    addMeAppointment(credenciales, date)
     .then(respuesta => {
       let nameUser = respuesta.data.name
       if(nameUser){
@@ -120,40 +120,40 @@ export const Appointment = () => {
       ) : (
         <>
       <div className="calendarDesign react-calendar__tile">
-        <Calendar onChange={setFecha} value={fecha}/>
+        <Calendar onChange={setDate} value={date}/>
       </div>
       <div>
-      <p>Fecha seleccionada: {fecha.toLocaleDateString("es-ES")}</p>
+      <p class="text-center">Fecha seleccionada: {date.toLocaleDateString("es-ES")}</p>
       <InputText
         className={
-          credencialesError.serviceError === ""
+          credencialesError.dental_intervention_idError === ""
             ? "inputBasicDesign"
             : "inputBasicDesign inputErrorDesign"
         }
         type="number"
         maxLength="1"
-        name="service"
+        name="dental_intervention_id"
         placeholder="Id código Tratamiento"
         required={true}
         changeFunction={(e) => inputHandler(e)}
         blurValidateFunction={(e) => inputValidate(e)}
       />
-      <div>{credencialesError.serviceError}</div>
+      <div>{credencialesError.dental_intervention_idError}</div>
       <InputText
         className={
-          credencialesError.doctorError === ""
+          credencialesError.doctor_idError === ""
             ? "inputBasicDesign"
             : "inputBasicDesign inputErrorDesign"
         }
         type="number"
         maxLength="1"
-        name="doctor"
+        name="doctor_id"
         placeholder="Id Dentista"
         required={false}
         changeFunction={(e) => inputHandler(e)}
         blurValidateFunction={(e) => inputValidate(e)}
       />
-      <div>{credencialesError.doctorError}</div>
+      <div>{credencialesError.doctor_idError}</div>
       </div>
       <div className={activeForm ? "buttonOff buttonOn" : "buttonOff" } 
       onClick={activeForm ? () => {addAppointment();} : () => {} }>Solicitar

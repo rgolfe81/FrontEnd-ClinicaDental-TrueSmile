@@ -18,3 +18,14 @@
     align-items: center;
     margin-top: 2em;
 }
+
+.calendarDesign{
+    width: 23em;
+    height: 23em;
+}
+
+.react-calendar__tile{
+    padding: 5px;
+    font-size: 11px;
+    text-align: center;
+}

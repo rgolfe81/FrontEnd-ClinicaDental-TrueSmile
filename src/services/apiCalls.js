@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const root = "http://localhost:3000"
-// const root = "https://clinica-truesmile-production-b948.up.railway.app"
+// const root = "http://localhost:3000"
+const root = "https://clinica-truesmile-production-b948.up.railway.app"
 
 export const logMe = async (body) => {
 
@@ -20,4 +20,9 @@ export const bringProfile = async (token) => {
     };
 
     return await axios.get(`${root}/user/profile`, config);
+}
+
+export const addMeAppointment = async (body) => {
+
+  return await axios.post(`${root}/appointment/create`, body);
 }

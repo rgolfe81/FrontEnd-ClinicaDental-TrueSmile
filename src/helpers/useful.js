@@ -46,6 +46,23 @@ export const checkInputs = (name, data, required) => {
       return {message: "", validated: true};
       break;
 
+    case "service":
+      if (data === "" && required === true){
+        return {message: "El campo no puede estar vacío", validated: false};
+      } else if (!/^[1-8]$/.test(data)){
+        return {message: "El servicio introducido no existe", validated: false};
+      }
+      return {message: "", validated: true};
+
+      case "doctor":
+        if (data === "" && required === true){
+          return {message: "El campo no puede estar vacío", validated: false};
+        } else if (!/^(1|2)?$/.test(data)){
+          return {message: "El doctor introducido no existe", validated: false};
+        }
+        return {message: "", validated: true};
+      break;
+
     default:
       console.log("Campo de entrada no reconocido");
   }

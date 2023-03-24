@@ -6,31 +6,33 @@ import { InputText } from "../../common/InputText/InputText";
 import { useNavigate } from "react-router-dom";
 import { addMeAppointment } from "../../services/apiCalls";
 import { checkInputs } from "../../helpers/useful";
+import { useSelector } from "react-redux";
+import { userData } from "../userSlice";
 
 export const Appointment = () => {
 
-  const navigate = useNavigate;
-  const [date, setDate] = useState(new Date());
-
-  useEffect(()=>{
-    console.log("Fecha escogida: ", dayjs(date).format("dddd DD MM YYYY"));
-    let chooseDate = dayjs(date).format("dddd DD MM YYYY");
-    console.log(chooseDate);
-  },[date]);
+  const navigate = useNavigate();
+  const [dateForTransform, setDateForTransform] = useState(new Date());
+  const ReduxCredentials = useSelector(userData);
+  const { token } = ReduxCredentials.credentials;
+  const dateBackend = dayjs(dateForTransform).format("YYYY-MM-DD hh:mm:ss");
 
     // Hooks para validación de errores
 
     const [credenciales, setCredenciales] = useState({
       dental_intervention_id: "",
       doctor_id: "",
+      date: dateBackend,
     });
     const [credencialesError, setCredencialesError] = useState({
       dental_intervention_idError: "",
       doctor_idError: "",
+      dateError: "",
     })
     const [credencialesIsValid, setCredencialesIsValid] = useState({
       dental_intervention_idIsValid: false,
       doctor_idIsValid: false,
+      dateIsValid: true,
     })
       // Hook validación final que activa el botón de envío de datos
     const [activeForm, setActiveForm] = useState(false);
@@ -88,11 +90,10 @@ export const Appointment = () => {
   };
   
   const [congratulations, setCongratulations] = useState("");
-  
   const addAppointment = () => {
-    addMeAppointment(credenciales, date)
+    addMeAppointment(credenciales, token)
     .then(respuesta => {
-      let nameUser = respuesta.data.name
+      let nameUser = ReduxCredentials.credentials.nameUser;
       if(nameUser){
         setCongratulations(`Enhorabuena ${nameUser}, has solicitado una nueva cita`);
         setTimeout(() => {
@@ -106,7 +107,6 @@ export const Appointment = () => {
         }, 3000);
       }
     })
-  
     .catch((error) => console.log(error));
   };
 
@@ -120,10 +120,10 @@ export const Appointment = () => {
       ) : (
         <>
       <div className="calendarDesign react-calendar__tile">
-        <Calendar onChange={setDate} value={date}/>
+        <Calendar onChange={setDateForTransform} value={dateForTransform}/>
       </div>
       <div>
-      <p class="text-center">Fecha seleccionada: {date.toLocaleDateString("es-ES")}</p>
+      <p>Fecha seleccionada: {dateForTransform.toLocaleDateString("es-ES")}</p>
       <InputText
         className={
           credencialesError.dental_intervention_idError === ""

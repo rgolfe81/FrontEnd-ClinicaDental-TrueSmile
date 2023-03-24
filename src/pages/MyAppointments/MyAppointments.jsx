@@ -2,7 +2,7 @@ import dayjs from 'dayjs';
 import React, { useEffect, useState } from 'react'
 import { Table } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
-import { bringAppointments } from '../../services/apiCalls';
+import { bringPatientAppointments } from '../../services/apiCalls';
 import { userData } from '../userSlice';
 import "./MyAppointments.css"
 
@@ -15,8 +15,9 @@ export const MyAppointments = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const respuesta = await bringAppointments(token);
+        const respuesta = await bringPatientAppointments(token);
         setmyPatientAppointments(respuesta.data);
+        console.log(respuesta.data)
       } catch (error) {
         console.log(error);
       }

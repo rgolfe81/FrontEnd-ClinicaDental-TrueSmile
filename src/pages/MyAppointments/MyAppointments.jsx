@@ -1,23 +1,30 @@
+import { useSelector } from 'react-redux';
+import { bringDoctorAppointments, bringPatientAppointments } from '../../services/apiCalls';
+import { userData } from '../userSlice';
 import dayjs from 'dayjs';
 import React, { useEffect, useState } from 'react'
 import { Table } from 'react-bootstrap';
-import { useSelector } from 'react-redux';
-import { bringPatientAppointments } from '../../services/apiCalls';
-import { userData } from '../userSlice';
 import "./MyAppointments.css"
 
 export const MyAppointments = () => {
 
-  const [myPatientAppointments, setmyPatientAppointments] = useState([]);
   const ReduxCredentials = useSelector(userData);
-  const { token } = ReduxCredentials.credentials;
+  const { token, nameUser } = ReduxCredentials.credentials;
+  const [myAppointments, setMyAppointments] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const respuesta = await bringPatientAppointments(token);
-        setmyPatientAppointments(respuesta.data);
-        console.log(respuesta.data)
+        let appointments = [];
+        if (nameUser === "Pepa" || nameUser ==="Carmen") {
+          const response = await bringDoctorAppointments(token);
+          appointments = response.data;
+        } else {
+          const response = await bringPatientAppointments(token);
+          appointments = response.data;
+        }
+        setMyAppointments(appointments);
+        console.log(appointments)
       } catch (error) {
         console.log(error);
       }
@@ -25,9 +32,9 @@ export const MyAppointments = () => {
     if (token) {
       fetchData();
     }
-  }, [token]);
+  }, [token, nameUser]);
 
-  if (!myPatientAppointments) {
+  if (!myAppointments) {
     return <div>Cargando datos ...</div>;
   }
 
@@ -36,7 +43,7 @@ export const MyAppointments = () => {
         <div className="titleDesign">
             <h2>Mis citas</h2>
         </div>
-        {myPatientAppointments.map(appointment =>
+        {myAppointments.map(appointment =>
           <div key={appointment.id} className='tableDesign'>
               {
                   <Table striped bordered>
@@ -58,6 +65,9 @@ export const MyAppointments = () => {
                   <tr>
                     <td>Precio</td>
                     <td>{appointment.Dental_intervention.price}</td>
+                  </tr><tr>
+                    <td>Paciente</td>
+                    <td>{appointment.Patient.User.name} {appointment.Patient.User.surname}</td>
                   </tr>
                   <tr>
                     <td>Dentista</td>

@@ -104,10 +104,11 @@ const logeame = () => {
         nameUser: nameUser,
       };
       console.log(respuesta.data);
+      console.log(decodificado);
       
       //Este es el momento en el que guardo en REDUX
       dispatch(login({ credentials: datosBackend }));
-
+      
       //Mensaje después de Login
       if (datosBackend.token){
         setWelcome(`Hola ${nameUser}, has iniciado sesión correctamente`);

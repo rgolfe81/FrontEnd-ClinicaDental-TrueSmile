@@ -18,7 +18,7 @@ export const Profile = () => {
         const respuesta = await bringProfile(token);
         setProfile(respuesta.data);
       } catch (error) {
-        console.error(error);
+        console.log(error);
       }
     };
     if (token) {

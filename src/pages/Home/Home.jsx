@@ -7,7 +7,6 @@ import './Home.css';
 export const Home = () => {
   const credentialsRdx = useSelector(userData);
   const { token, usuario } = credentialsRdx.credentials;
-
   return (
     <>
       <div className='homeDesign'>
@@ -16,7 +15,14 @@ export const Home = () => {
             <Navigator ruta={'Ver mis citas'} destino={'/myAppointments'} />
           ) : null}
 
-          {token && usuario?.userId !== 2 && usuario?.userId !== 4 ? (
+          {token && usuario?.roleId === 2 ? (
+            <>
+            <Navigator ruta={'Ver usuarios'} destino={'/'} />
+            <Navigator ruta={'Ver citas'} destino={'/myAppointments'} />
+            </>
+          ) : null}
+
+          {token && usuario?.userId !== 2 && usuario?.userId !== 4 && usuario?.roleId !== 2 ? (
             <>
               <Navigator ruta={'Pedir cita'} destino={'/appointment'} />
               <Navigator ruta={'Ver mis citas'} destino={'/myAppointments'} />

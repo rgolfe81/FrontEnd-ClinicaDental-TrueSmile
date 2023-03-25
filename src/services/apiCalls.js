@@ -53,3 +53,12 @@ export const deleteAppointment = async (id, token) => {
   };
   return await axios.delete(`${root}/appointment/delete/${id}`, config);
 }
+
+export const getAllUsers = async (token) => {
+  let config = {
+    headers: { 
+      'Authorization': 'Bearer '+ token,  
+    }
+  };
+  return await axios.get(`${root}/user/allUsers`, config);
+}

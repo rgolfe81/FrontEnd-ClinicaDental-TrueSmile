@@ -17,8 +17,6 @@ export const Profile = () => {
       try {
         const respuesta = await bringProfile(token);
         setProfile(respuesta.data);
-        console.log(respuesta.data);
-        console.log(ReduxCredentials.credentials);
       } catch (error) {
         console.log(error);
       }
@@ -37,6 +35,11 @@ export const Profile = () => {
       <div className="titleDesign">
         <h2>Perfil Usuario</h2>
       </div>
+      {token && usuario?.roleId === 2 ? (
+        <div>
+          <h5>Administrador</h5>
+        </div>
+      ) : null}
       <div className='tableDesign'>
       <Table striped bordered>
       <thead>
@@ -73,13 +76,19 @@ export const Profile = () => {
     <div className='AppointmentsButtonsDesign'>
     {(usuario.userId === 2 || usuario.userId === 4) ? (
       <Navigator ruta={"Ver mis citas"} destino={"/myAppointments"} />
-      ) : ( 
+      ) : null}
+      {token && usuario?.roleId === 2 ? (
+      <>
+      <Navigator ruta={"Ver usuarios"} destino={"/"} />
+      <Navigator ruta={"Ver citas"} destino={"/myAppointments"} />
+      </>
+      ) : null}
+      {token && usuario?.userId !== 2 && usuario?.userId !== 4 && usuario?.roleId !== 2 ? (       
       <>
       <Navigator ruta={"Pedir cita"} destino={"/appointment"} />
       <Navigator ruta={"Ver mis citas"} destino={"/myAppointments"} />
       </>
-      )
-    }
+      ) : null}
     </div>
   </div>
   )

@@ -24,7 +24,6 @@ export const MyAppointments = () => {
           appointments = response.data;
         }
         setMyAppointments(appointments);
-        console.log(appointments)
       } catch (error) {
         console.log(error);
       }

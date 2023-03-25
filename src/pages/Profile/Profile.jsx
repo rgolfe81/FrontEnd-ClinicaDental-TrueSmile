@@ -10,13 +10,15 @@ export const Profile = () => {
 
   const [profile, setProfile] = useState([]);
   const ReduxCredentials = useSelector(userData);
-  const { token } = ReduxCredentials.credentials;
+  const { token, usuario } = ReduxCredentials.credentials;
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const respuesta = await bringProfile(token);
         setProfile(respuesta.data);
+        console.log(respuesta.data);
+        console.log(ReduxCredentials.credentials);
       } catch (error) {
         console.log(error);
       }
@@ -67,9 +69,17 @@ export const Profile = () => {
       </tbody>
     </Table>
     </div>
+    {console.log(usuario.userId)}
     <div className='AppointmentsButtonsDesign'>
-    <Navigator ruta={"Pedir cita"} destino={"/appointment"} />
-    <Navigator ruta={"Ver mis citas"} destino={"/myAppointments"} />
+    {(usuario.userId === 2 || usuario.userId === 4) ? (
+      <Navigator ruta={"Ver mis citas"} destino={"/myAppointments"} />
+      ) : ( 
+      <>
+      <Navigator ruta={"Pedir cita"} destino={"/appointment"} />
+      <Navigator ruta={"Ver mis citas"} destino={"/myAppointments"} />
+      </>
+      )
+    }
     </div>
   </div>
   )

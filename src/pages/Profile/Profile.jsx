@@ -72,7 +72,6 @@ export const Profile = () => {
       </tbody>
     </Table>
     </div>
-    {console.log(usuario.userId)}
     <div className='AppointmentsButtonsDesign'>
     {(usuario.userId === 2 || usuario.userId === 4) ? (
       <Navigator ruta={"Ver mis citas"} destino={"/myAppointments"} />

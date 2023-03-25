@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { bringDoctorAppointments, bringPatientAppointments, deleteAppointment } from '../../services/apiCalls';
+import { bringAllAppointments, bringDoctorAppointments, bringPatientAppointments, deleteAppointment } from '../../services/apiCalls';
 import { userData } from '../userSlice';
 import dayjs from 'dayjs';
 import React, { useEffect, useState } from 'react'
@@ -16,40 +16,38 @@ export const MyAppointments = () => {
     const fetchData = async () => {
       try {
         let appointments = [];
-        if (usuario.userId === 2 || usuario.userId === 4) {
-          const response = await bringDoctorAppointments(token);
-          appointments = response.data;
-        } else {
-          const response = await bringPatientAppointments(token);
-          appointments = response.data;
+        let response;
+        switch (true) {
+          case token && usuario.userId === 2 || usuario.userId === 4:
+            response = await bringDoctorAppointments(token);
+            appointments = response.data;
+            break;
+          case token && usuario.userId !== 2 && usuario.userId !== 4 && usuario.roleId !== 2:
+            response = await bringPatientAppointments(token);
+            appointments = response.data;
+            break;
+          case token && usuario.roleId === 2:
+            response = await bringAllAppointments(token);
+            appointments = response.data;
+            break;
+          default:
+            console.log("Tipo de usuario no definido");
         }
         setMyAppointments(appointments);
       } catch (error) {
         console.log(error);
       }
     };
+  
     if (token) {
       fetchData();
     }
   }, [token, usuario.userId]);
 
-  if (!myAppointments) {
-    return <div>Cargando datos ...</div>;
-  }
-
-  const handleDeleteAppointment = async (id) => {
-    try {
-      await deleteAppointment(id, token);
-      setMyAppointments(myAppointments.filter(appointment => appointment.id !== id));
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   return (
     <div className='myAppointmentDesign'>
         <div className="titleDesign">
-            <h2>Mis citas</h2>
+        {usuario.roleId === 2 ? <h2>Todas las citas</h2> : <h2>Mis citas</h2>}        
         </div>
         {myAppointments.map(appointment =>
           <div key={appointment.id} className='tableDesign'>
@@ -64,7 +62,7 @@ export const MyAppointments = () => {
                   <tbody>
                     <tr>
                     <td>Fecha</td>
-                    <td>{dayjs(appointment.date).format("dddd DD MM YYYY")}</td>
+                    <td>{dayjs(appointment.date).format("dddd DD/MM/YYYY")}</td>
                   </tr>
                   <tr>
                     <td>Tratamiento</td>
@@ -72,7 +70,7 @@ export const MyAppointments = () => {
                   </tr>
                   <tr>
                     <td>Precio</td>
-                    <td>{appointment.Dental_intervention.price}</td>
+                    <td>{appointment.Dental_intervention.price}€</td>
                   </tr><tr>
                     <td>Paciente</td>
                     <td>{appointment.Patient.User.name} {appointment.Patient.User.surname}</td>
@@ -86,8 +84,8 @@ export const MyAppointments = () => {
                     <td>{appointment.Doctor.medical_speciality}</td>
                   </tr>
                   <tr>
-                    <td>
-                      <button onClick={() => handleDeleteAppointment(appointment.id)}>Eliminar</button>
+                    <td colSpan={2} class="text-center">
+                      <button  className="buttonDesign" onClick={() => deleteAppointment(appointment.id)}>Eliminar</button>
                     </td>
                   </tr>
                 </tbody>

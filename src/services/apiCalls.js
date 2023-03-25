@@ -62,3 +62,12 @@ export const getAllUsers = async (token) => {
   };
   return await axios.get(`${root}/user/allUsers`, config);
 }
+
+export const bringAllAppointments = async (token) => {
+  let config = {
+    headers: { 
+      'Authorization': 'Bearer '+ token,  
+    }
+  };
+  return await axios.get(`${root}/appointment/viewAll`, config);
+}

@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { bringDoctorAppointments, bringPatientAppointments } from '../../services/apiCalls';
+import { bringDoctorAppointments, bringPatientAppointments, deleteAppointment } from '../../services/apiCalls';
 import { userData } from '../userSlice';
 import dayjs from 'dayjs';
 import React, { useEffect, useState } from 'react'
@@ -9,14 +9,14 @@ import "./MyAppointments.css"
 export const MyAppointments = () => {
 
   const ReduxCredentials = useSelector(userData);
-  const { token, nameUser } = ReduxCredentials.credentials;
+  const { token, usuario } = ReduxCredentials.credentials;
   const [myAppointments, setMyAppointments] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         let appointments = [];
-        if (nameUser === "Pepa" || nameUser ==="Carmen") {
+        if (usuario.userId === 2 || usuario.userId === 4) {
           const response = await bringDoctorAppointments(token);
           appointments = response.data;
         } else {
@@ -31,11 +31,20 @@ export const MyAppointments = () => {
     if (token) {
       fetchData();
     }
-  }, [token, nameUser]);
+  }, [token, usuario.userId]);
 
   if (!myAppointments) {
     return <div>Cargando datos ...</div>;
   }
+
+  const handleDeleteAppointment = async (id) => {
+    try {
+      await deleteAppointment(id, token);
+      setMyAppointments(myAppointments.filter(appointment => appointment.id !== id));
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className='myAppointmentDesign'>
@@ -75,6 +84,11 @@ export const MyAppointments = () => {
                   <tr>
                     <td>Especialidad</td>
                     <td>{appointment.Doctor.medical_speciality}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <button onClick={() => handleDeleteAppointment(appointment.id)}>Eliminar</button>
+                    </td>
                   </tr>
                 </tbody>
                 </Table>

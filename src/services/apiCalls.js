@@ -44,3 +44,12 @@ export const bringDoctorAppointments = async (token) => {
   };
   return await axios.get(`${root}/appointment/viewDoctor`, config);
 }
+
+export const deleteAppointment = async (id, token) => {
+  let config = {
+    headers: { 
+      'Authorization': 'Bearer '+ token,  
+    }
+  };
+  return await axios.delete(`${root}/appointment/delete/${id}`, config);
+}

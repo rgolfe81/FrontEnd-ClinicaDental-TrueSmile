@@ -54,7 +54,7 @@ export const deleteAppointment = async (id, token) => {
   return await axios.delete(`${root}/appointment/delete/${id}`, config);
 }
 
-export const getAllUsers = async (token) => {
+export const bringAllUsers = async (token) => {
   let config = {
     headers: { 
       'Authorization': 'Bearer '+ token,  

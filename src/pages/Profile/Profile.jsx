@@ -78,7 +78,7 @@ export const Profile = () => {
       ) : null}
       {token && usuario?.roleId === 2 ? (
       <>
-      <Navigator ruta={"Ver usuarios"} destino={"/"} />
+      <Navigator ruta={"Ver usuarios"} destino={"/users"} />
       <Navigator ruta={"Ver citas"} destino={"/myAppointments"} />
       </>
       ) : null}

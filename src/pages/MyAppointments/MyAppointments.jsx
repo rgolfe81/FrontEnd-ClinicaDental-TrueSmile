@@ -98,7 +98,7 @@ export const MyAppointments = () => {
                   <td>{appointment.Doctor.medical_speciality}</td>
                 </tr>
                 <tr>
-                  <td colSpan={2} class="text-center">
+                  <td colSpan={2} className="text-center">
                     <button
                       className="buttonDesign"
                       onClick={() => deleteAppointment(appointment.id)}

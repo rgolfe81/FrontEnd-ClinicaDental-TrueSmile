@@ -48,7 +48,6 @@ Todos los campos de entrada de datos del login de ususario, registro de usuario 
 1. Clonar el repositorio
 2. ` $ npm install `
 3. ``` $ npm run dev ```
-4. ...
 
 ## Vistas
 Landing

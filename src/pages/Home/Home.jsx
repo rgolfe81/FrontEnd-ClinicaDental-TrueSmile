@@ -131,7 +131,7 @@ export const Home = () => {
           <footer className="w-100">
             <Container fluid className="formatFooter">
               <Row>
-                <Col sm={12} md={4}>
+                <Col sm={12} md={4} className="text-center">
                   <h4>Contacto</h4>
                   <p>Teléfono: 679 762 539</p>
                   <p>Email: info@truesmile.com</p>

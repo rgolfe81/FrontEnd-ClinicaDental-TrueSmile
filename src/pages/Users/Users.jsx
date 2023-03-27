@@ -27,7 +27,6 @@ export const Users = () => {
       fetchData();
     }
   }, [token, usuario.roleId]);
-  console.log(allUsers);
   return (
     <div className="usersDesign">
       <div className="titleDesign">

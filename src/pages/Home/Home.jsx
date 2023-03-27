@@ -71,6 +71,7 @@ export const Home = () => {
               <h5>Ante cualquier molestia...</h5>
               <p>no dude en ponerse en contacto con nosotros</p>
             </Col>
+
             <Col sm={12} md={6}>
               <h3 className="mt-4">Tratamientos</h3>
               <p>

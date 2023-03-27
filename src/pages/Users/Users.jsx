@@ -36,7 +36,7 @@ export const Users = () => {
       {allUsers.map((userBring) => (
         <div key={userBring.id} className="tableDesign">
           {
-            <Table striped bordered>
+            <Table striped bordered className="bg-white border-3">
               <thead>
                 <tr>
                   <td>nº</td>

@@ -15,14 +15,14 @@ export const Appointment = () => {
   const [dateForTransform, setDateForTransform] = useState(new Date());
   const ReduxCredentials = useSelector(userData);
   const { token } = ReduxCredentials.credentials;
-  const dateBackend = dayjs(dateForTransform).format("YYYY-MM-DD hh:mm:ss");
+  
 
     // Hooks para validación de errores
 
     const [credenciales, setCredenciales] = useState({
       dental_intervention_id: "",
       doctor_id: "",
-      date: dateBackend,
+      date: dayjs(dateForTransform).format("YYYY-MM-DD hh:mm:ss"),
     });
     const [credencialesError, setCredencialesError] = useState({
       dental_intervention_idError: "",
@@ -40,7 +40,7 @@ export const Appointment = () => {
     // Manejador de errores. Actualiza el estado del componente
   
     const inputHandler = (e) => {
-      setCredenciales((preveState => ({...preveState, [e.target.name]: e.target.value,})));
+      setCredenciales((preveState => ({...preveState, [e.target.name]: e.target.value})));
     };
   
     // Función del ciclo de vida del componente

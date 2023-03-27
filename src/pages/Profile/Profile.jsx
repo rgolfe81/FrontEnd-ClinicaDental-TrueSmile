@@ -41,7 +41,7 @@ export const Profile = () => {
         </div>
       ) : null}
       <div className='tableDesign'>
-      <Table striped bordered>
+      <Table striped bordered className="bg-white border-3">
       <thead>
         <tr>
           <td>DNI</td>

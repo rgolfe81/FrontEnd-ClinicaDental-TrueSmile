@@ -1,3 +1,4 @@
+
 .homeDesign {
     height: 80vh;
     width: 100vw;
@@ -6,13 +7,51 @@
     flex-direction: column;
     align-items: start;
 }
-.formatHome{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
+
 .buttonsAppointmentsDesign{
     display: flex;
     justify-content: space-around;
     width: 100%;
 }
+
+.imgDesign{
+    width: 26em;
+}
+.img02Design{
+    width: 22em;
+}
+
+.footerDesign{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+}
+.formatFooter{
+    background-color: rgb(98, 84, 193);
+    color: white;
+    padding: 2em;
+}
+
+.socialNetworks{
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+    gap: 2em;
+    color: white
+}
+
+@media (max-width: 1000px){
+    .imgDesign{
+        width: 20em;
+    }
+        }
+
+@media (max-width: 768px){
+    .imgDesign{
+        width: 17em;
+    }
+    .img02Design{
+        width: 16em;
+    }
+        }

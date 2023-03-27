@@ -21,9 +21,7 @@ export const Header = () => {
       <div className="groupLogo">
         <div>
           <img
-            src={Logo6}
-            alt="imagen de Logo Clínica Dental"
-            className="logoDesign"
+            src={Logo6} alt="imagen de Logo Clínica Dental" className="logoDesign"
           />
         </div>
         <div className="logoTitle">

@@ -51,6 +51,19 @@ export const MyAppointments = () => {
     }
   }, [token, usuario.userId]);
 
+  const deleteThisAppointment = async (id) => {
+    const confirm = window.confirm("¿Estás seguro de que quieres eliminar esta cita?");
+    if (confirm) {
+      try {
+        await deleteAppointment(id, token);
+        const updatedAppointments = myAppointments.filter((appointment) => appointment.id !== id);
+        setMyAppointments(updatedAppointments);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
+
   return (
     <div className="myAppointmentDesign">
       <div className="titleDesign">
@@ -59,7 +72,7 @@ export const MyAppointments = () => {
       {myAppointments.map((appointment) => (
         <div key={appointment.id} className="tableDesign">
           {
-            <Table striped bordered>
+            <Table striped bordered className="bg-white border-3">
               <thead>
                 <tr>
                   <td>nº</td>
@@ -101,7 +114,7 @@ export const MyAppointments = () => {
                   <td colSpan={2} className="text-center">
                     <button
                       className="buttonDesign"
-                      onClick={() => deleteAppointment(appointment.id)}
+                      onClick={() => deleteThisAppointment(appointment.id)}
                     >
                       Eliminar
                     </button>

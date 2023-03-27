@@ -30,7 +30,7 @@ export const Appointment = () => {
   const [newAppointmentIsValid, setNewAppointmentIsValid] = useState({
     dental_intervention_idIsValid: false,
     doctor_idIsValid: false,
-    dateIsValid: true,
+    dateIsValid: false,
   });
 
   // Hook validación final que activa el botón de envío de datos
@@ -114,7 +114,7 @@ export const Appointment = () => {
   return (
     <div className="appointmentDesign">
       <div className="titleDesign">
-        <h2>Pedir cita</h2>
+        <h2>Solicitar cita</h2>
       </div>
       {congratulations !== "" ? (
         <div>{congratulations}</div>
@@ -124,9 +124,14 @@ export const Appointment = () => {
             <Calendar onChange={setDateForTransform} value={dateForTransform} />
           </div>
           <div>
-            <p>
+            <div>
               Fecha seleccionada: {dateForTransform.toLocaleDateString("es-ES")}
-            </p>
+            </div>
+            {/* Validación fecha seleccionada */}
+            {(dateForTransform < new Date()) ? 
+            (newAppointmentIsValid.dateIsValid = false, <div>No puedes seleccionar una fecha pasada</div>) :
+            newAppointmentIsValid.dateIsValid = true
+            }
             <InputText
               className={
                 newAppointmentError.dental_intervention_idError === ""

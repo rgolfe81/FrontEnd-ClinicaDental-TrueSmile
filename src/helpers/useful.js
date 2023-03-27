@@ -50,7 +50,7 @@ export const checkInputs = (name, data, required) => {
       if (data === "" && required === true){
         return {message: "El campo no puede estar vacío", validated: false};
       } else if (!/^[1-8]$/.test(data)){
-        return {message: "El tratamiento introducido no existe", validated: false};
+        return {message: "Tramientos 1-8 Indicados en Home", validated: false};
       }
       return {message: "", validated: true};
 
@@ -58,7 +58,7 @@ export const checkInputs = (name, data, required) => {
         if (data === "" && required === true){
           return {message: "El campo no puede estar vacío", validated: false};
         } else if (!/^(1|2)?$/.test(data)){
-          return {message: "El doctor introducido no existe", validated: false};
+          return {message: "Dentista 1-2", validated: false};
         }
         return {message: "", validated: true};
       break;

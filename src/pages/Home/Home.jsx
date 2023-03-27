@@ -58,6 +58,13 @@ export const Home = () => {
               <div className="text-center">
                 <img src={Img_01} alt="Imagen portada" className="imgDesign" />
               </div>
+              <p className="mt-4">
+                Combinando experiencia y tecnología de vanguardia, les ofrecemos
+                el mejor servicio de calidad y confianza.
+                <br />
+                Valoramos toda una serie de factores y establecemos un plan
+                terapéutico personalizado para devolverle una sonrisa saludable.
+              </p>
               <h3 className="mt-4">Algunos consejos ...</h3>
               <h5 className="mt-4">Cepillarse los dientes</h5>
               <p>
@@ -73,52 +80,44 @@ export const Home = () => {
             </Col>
 
             <Col sm={12} md={6}>
-              <h3 className="mt-4">Tratamientos</h3>
-              <p>
-                Combinando experiencia y tecnología de vanguardia, les ofrecemos
-                el mejor servicio de calidad y confianza.
-                <br />
-                Valoramos toda una serie de factores y establecemos un plan
-                terapéutico personalizado para devolverle una sonrisa saludable.
-              </p>
               <div className="text-center">
                 <img
                   src={Img_02}
                   alt="imagen tratamientos"
-                  className="img-fluid"
+                  className="mt-4"
                 />
               </div>
-              <h5 className="mt-4">
-                Disponemos de un ámplio abanico de tratamientos
-              </h5>
-              <h6 className="mt-4">Odontología conservadora:</h6>
+              <h3 className="mt-4">Tratamientos</h3>
+              <h6 className="mt-4">1. Odontología conservadora:</h6>
               <p>Obturaciones, reconstrucciones dentales, endodoncias</p>
-              <h6>Odontología deportiva:</h6>
+              <h6>2. Odontología deportiva:</h6>
               <p>Protectores para deportes de contacto.</p>
-              <h6>Periodoncia:</h6>
+              <h6>3. Periodoncia:</h6>
               <p>
                 Limpiezas - tartrectomía, raspados y alisados radiculares,
                 obturaciones a retro, tratamiento de las encías (gingivectomías,
                 gingivoplastias, ...)
               </p>
-              <h6>Prostodoncia:</h6>
+              <h6>4. Prostodoncia:</h6>
               <p>
                 Prótesis fija (puentes y coronas), prótesis sobre implantes,
                 prótesis removibles.
               </p>
-              <h6>Implantes, cirugía oral:</h6>
+              <h6>5. Implantes, cirugía oral:</h6>
               <p>
                 extracciones dentales, extracciones de terceros molares (muelas
                 del juicio), extracciones de caninos, extirpación de quistes,
                 frenectomía (cirugía de frenillos), biopsias, implantación de
                 hueso y membrana.
               </p>
-              <h6>Estética dental:</h6>
+              <h6>8. Ortodoncia:</h6>
+              <p>Fijación con braquets y aparantología funcional</p>
+              <h6>7. Estética dental:</h6>
               <p>
                 blanqueamientos dentales, carillas, coronas de porcelana sin
                 metal (circonio, feldespáticas, ...)
               </p>
-              <h6>Odontopediatría:</h6>
+              <h6>8. Odontopediatría:</h6>
               <p>
                 Obturaciones en dentición temporal, pulpotomías, pulpectomías,
                 extracciones dentales, mantenedores de espacio, fluoraciones

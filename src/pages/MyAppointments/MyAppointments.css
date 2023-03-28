@@ -23,6 +23,7 @@
     display: flex;
     justify-content: center;
 }
+
 .buttonDesign{
     background-color: rgb(228, 66, 66);
     border-radius: 0.5em;

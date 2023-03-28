@@ -55,7 +55,7 @@ Todos los campos de entrada de datos del login de ususario, registro de usuario 
 </a>
 <a href="https://vercel.com/">
     <img src= "https://img.shields.io/badge/railway-%23000000.svg?style=for-the-badge&logo=railway&logoColor=white"/>
-</a>
+</a><br>
 <a href="https://developer.mozilla.org/es/docs/Web/HTML">
     <img src= "https://img.shields.io/badge/HTML5-FF6C37?style=for-the-badge&logo=HTML5&logoColor=white"/>
 </a>
@@ -82,17 +82,28 @@ Todos los campos de entrada de datos del login de ususario, registro de usuario 
 3. ``` $ npm run dev ```
 
 ## Vistas
-Landing
-<img src="./src/img/Screenshot_1.jpg">  
+Home
+
+<img src="./src/img/Screenshot_1.jpg">
+
 Register
+
 <img src="./src/img/Screenshot_2.jpg">
+
 Login
+
 <img src="./src/img/Screenshot_3.jpg">
+
 Profile
+
 <img src="./src/img/Screenshot_4.jpg">
+
 Crear citas
+
 <img src="./src/img/Screenshot_6.jpg">
+
 Revisar citas
+
 <img src="./src/img/Screenshot_5.jpg">
 
 ## Futuras funcionalidades

@@ -106,7 +106,7 @@ export const Home = () => {
                 frenectomía (cirugía de frenillos), biopsias, implantación de
                 hueso y membrana.
               </p>
-              <h6>8. Ortodoncia:</h6>
+              <h6>6. Ortodoncia:</h6>
               <p>Fijación con braquets y aparantología funcional</p>
               <h6>7. Estética dental:</h6>
               <p>
@@ -127,21 +127,20 @@ export const Home = () => {
             <Container fluid className="formatFooter">
               <Row classNAme={{ margin: 0 }}>
                 <Col sm={12} md={4} className="text-center">
-                  <h4>Contacto</h4>
+                  <h4 className="mb-3">Contacto</h4>
                   <p>Teléfono: 679 762 539</p>
-                  <p>Email: info@truesmile.com</p>
+                  <p>info@truesmile.com</p>
                   <p>
-                    Dirección: Calle Enric Valor, 1<br /> 46191 Vilamarxant
+                    Calle Enric Valor, 1<br /> 46191 Vilamarxant
                   </p>
                 </Col>
                 <Col sm={12} md={4} className="text-center">
-                  <h4>Horarios</h4>
+                  <h4 className="mb-3">Horarios</h4>
                   <p>Lunes - Viernes: 9:00 - 20:00</p>
                   <p>Sábados: 9:00 - 14:00</p>
-                  <p>Domingos: cerrado</p>
                 </Col>
                 <Col sm={12} md={4} className="text-center">
-                  <h4>Redes sociales</h4>
+                  <h4 className="mb-4">Redes sociales</h4>
                   <div className="socialNetworks">
                     <div>
                       <a href="#">

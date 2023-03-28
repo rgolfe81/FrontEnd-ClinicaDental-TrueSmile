@@ -39,8 +39,8 @@ export const Home = () => {
           ) : null}
         </div>
 
-        <Container>
-          <Row classNAme={{margin:0}}>
+        <Container className="transparent">
+          <Row className={{ margin: 0 }}>
             <Col sm={12} md={6}>
               <h3 className="mt-4">Bienvenido</h3>
               <p className="text-justify">
@@ -81,11 +81,7 @@ export const Home = () => {
 
             <Col sm={12} md={6}>
               <div className="text-center">
-                <img
-                  src={Img_02}
-                  alt="imagen tratamientos"
-                  className="mt-4"
-                />
+                <img src={Img_02} alt="imagen tratamientos" className="mt-4" />
               </div>
               <h3 className="mt-4">Tratamientos</h3>
               <h6 className="mt-4">1. Odontología conservadora:</h6>
@@ -129,7 +125,7 @@ export const Home = () => {
         <div className="footerDesign">
           <footer className="w-100">
             <Container fluid className="formatFooter">
-            <Row classNAme={{margin:0}}>
+              <Row classNAme={{ margin: 0 }}>
                 <Col sm={12} md={4} className="text-center">
                   <h4>Contacto</h4>
                   <p>Teléfono: 679 762 539</p>

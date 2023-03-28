@@ -52,11 +52,15 @@ export const MyAppointments = () => {
   }, [token, usuario.userId]);
 
   const deleteThisAppointment = async (id) => {
-    const confirm = window.confirm("¿Estás seguro de que quieres eliminar esta cita?");
+    const confirm = window.confirm(
+      "¿Estás seguro de que quieres eliminar esta cita?"
+    );
     if (confirm) {
       try {
         await deleteAppointment(id, token);
-        const updatedAppointments = myAppointments.filter((appointment) => appointment.id !== id);
+        const updatedAppointments = myAppointments.filter(
+          (appointment) => appointment.id !== id
+        );
         setMyAppointments(updatedAppointments);
       } catch (error) {
         console.log(error);

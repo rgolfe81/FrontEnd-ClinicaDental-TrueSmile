@@ -113,6 +113,7 @@ export const Appointment = () => {
 
   return (
     <div className="appointmentDesign">
+      <div className="boxDesignAppointment">
       <div className="titleDesign">
         <h2>Solicitar cita</h2>
       </div>
@@ -128,10 +129,10 @@ export const Appointment = () => {
               Fecha seleccionada: {dateForTransform.toLocaleDateString("es-ES")}
             </div>
             {/* Validación fecha seleccionada */}
-            {(dateForTransform < new Date()) ? 
-            (newAppointmentIsValid.dateIsValid = false, <div>No puedes seleccionar una fecha pasada</div>) :
-            newAppointmentIsValid.dateIsValid = true
-            }
+            {dateForTransform < new Date()
+              ? ((newAppointmentIsValid.dateIsValid = false),
+                (<div>No puedes seleccionar una fecha pasada</div>))
+              : (newAppointmentIsValid.dateIsValid = true)}
             <InputText
               className={
                 newAppointmentError.dental_intervention_idError === ""
@@ -177,6 +178,7 @@ export const Appointment = () => {
           </div>
         </>
       )}
+      </div>
     </div>
   );
 };

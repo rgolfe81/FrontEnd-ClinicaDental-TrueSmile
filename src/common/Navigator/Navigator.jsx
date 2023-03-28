@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./Navigator.css";
 
-export const Navigator = ({ruta, destino}) => {
+export const Navigator = ({ ruta, destino }) => {
   const navigate = useNavigate();
 
   return (
@@ -10,4 +10,4 @@ export const Navigator = ({ruta, destino}) => {
       {ruta}
     </div>
   );
-}
+};

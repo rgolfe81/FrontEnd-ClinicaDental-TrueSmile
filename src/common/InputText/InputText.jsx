@@ -2,18 +2,18 @@ import React from "react";
 import "./InputText.css";
 
 export const InputText = ({
-    className,
-    type,
-    maxLength,
-    placeholder,
-    required,
-    name,
-    changeFunction,
-    blurValidateFunction
+  className,
+  type,
+  maxLength,
+  placeholder,
+  required,
+  name,
+  changeFunction,
+  blurValidateFunction,
 }) => {
-    return (
+  return (
     <>
-    <input
+      <input
         className={className}
         type={type}
         maxLength={maxLength}
@@ -24,7 +24,7 @@ export const InputText = ({
         onChange={(e) => changeFunction(e)}
         // Se ejecuta cuando hacemos click fuera del input
         onBlur={(e) => blurValidateFunction(e)}
-    />
+      />
     </>
-    )
+  );
 };

@@ -8,6 +8,18 @@
     align-items: center;
 }
 
+.boxDesignLogin{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3em;
+    padding: 1em;
+    background-color: rgba(255, 255, 255, 0.7) !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 1em;
+}
+
 .titleDesign{
     border-bottom: 0.2em solid rgb(98, 84, 193);
     width: 15em;

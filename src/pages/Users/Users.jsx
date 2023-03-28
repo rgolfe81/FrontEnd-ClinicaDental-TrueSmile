@@ -67,7 +67,11 @@ export const Users = () => {
                 </tr>
                 <tr>
                   <td>Rol</td>
-                    {userBring.role_id === 1 ? <td> Usuario</td> : <td>Administrador</td>}
+                  {userBring.role_id === 1 ? (
+                    <td> Usuario</td>
+                  ) : (
+                    <td>Administrador</td>
+                  )}
                 </tr>
               </tbody>
             </Table>

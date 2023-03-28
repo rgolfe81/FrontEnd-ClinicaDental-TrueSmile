@@ -40,7 +40,7 @@ export const Home = () => {
         </div>
 
         <Container>
-          <Row>
+          <Row classNAme={{margin:0}}>
             <Col sm={12} md={6}>
               <h3 className="mt-4">Bienvenido</h3>
               <p className="text-justify">
@@ -129,7 +129,7 @@ export const Home = () => {
         <div className="footerDesign">
           <footer className="w-100">
             <Container fluid className="formatFooter">
-              <Row>
+            <Row classNAme={{margin:0}}>
                 <Col sm={12} md={4} className="text-center">
                   <h4>Contacto</h4>
                   <p>Teléfono: 679 762 539</p>

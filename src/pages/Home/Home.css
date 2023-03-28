@@ -9,6 +9,7 @@
 
 .buttonsAppointmentsDesign{
     display: flex;
+    background-color: rgb(86, 86, 141);
     justify-content: center;
     width: 100%;
 }

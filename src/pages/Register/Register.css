@@ -21,7 +21,6 @@
 
 .boxDesignRegister{
     display: flex;
-    width: 30em;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -52,4 +51,10 @@
 .buttonOn:hover{
     background-color:  rgb(66, 52, 154);
     transition: 0.5s;
+}
+
+@media (min-width: 768px){
+    .boxDesignRegister{
+        width: 30em;
+    }
 }

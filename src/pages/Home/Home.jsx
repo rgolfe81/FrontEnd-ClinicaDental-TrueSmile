@@ -125,7 +125,7 @@ export const Home = () => {
         <div className="footerDesign">
           <footer className="w-100">
             <Container fluid className="formatFooter">
-              <Row classNAme={{ margin: 0 }}>
+              <Row className={{ margin: 0 }}>
                 <Col sm={12} md={4} className="text-center">
                   <h4 className="mb-3">Contacto</h4>
                   <p>Teléfono: 679 762 539</p>

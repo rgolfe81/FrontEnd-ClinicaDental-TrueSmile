@@ -114,70 +114,72 @@ export const Appointment = () => {
   return (
     <div className="appointmentDesign">
       <div className="boxDesignAppointment">
-      <div className="titleDesign">
-        <h2>Solicitar cita</h2>
-      </div>
-      {congratulations !== "" ? (
-        <div>{congratulations}</div>
-      ) : (
-        <>
-          <div className="calendarDesign react-calendar__tile">
-            <Calendar onChange={setDateForTransform} value={dateForTransform} />
-          </div>
-          <div>
-            <div>
-              Fecha seleccionada: {dateForTransform.toLocaleDateString("es-ES")}
+        <div className="titleDesign">
+          <h2>Solicitar cita</h2>
+        </div>
+        {congratulations !== "" ? (
+          <div>{congratulations}</div>
+        ) : (
+          <>
+            <div className="calendarDesign react-calendar__tile">
+              <Calendar
+                onChange={setDateForTransform}
+                value={dateForTransform}
+              />
             </div>
-            {/* Validación fecha seleccionada */}
-            {dateForTransform < new Date()
-              ? ((newAppointmentIsValid.dateIsValid = false),
-                (<div>No puedes seleccionar una fecha pasada</div>))
-              : (newAppointmentIsValid.dateIsValid = true)}
-            <InputText
-              className={
-                newAppointmentError.dental_intervention_idError === ""
-                  ? "inputBasicDesign"
-                  : "inputBasicDesign inputErrorDesign"
+            <div>
+              <div>
+                Fecha seleccionada:{" "}
+                {dateForTransform.toLocaleDateString("es-ES")}
+              </div>
+              {/* Validación fecha seleccionada */}
+              {dateForTransform < new Date()
+                ? ((newAppointmentIsValid.dateIsValid = false),
+                  (<div>No puedes seleccionar una fecha pasada</div>))
+                : (newAppointmentIsValid.dateIsValid = true)}
+              <select
+                className={
+                  newAppointmentError.dental_intervention_idError === ""
+                    ? "inputBasicDesign"
+                    : "inputBasicDesign inputErrorDesign"
+                } name="dental_intervention_id" required={true} onChange={(e) => inputHandler(e)} onBlur={(e) => inputValidate(e)}>
+                <option value="">Intervención dental</option>
+                <option value="1">Odontología conservadora</option>
+                <option value="2">Odontología deportiva</option>
+                <option value="3">Periodoncia</option>
+                <option value="4">Prostodoncia</option>
+                <option value="5">Cirugía oral</option>
+                <option value="6">Ortodoncia</option>
+                <option value="7">Estética dental</option>
+                <option value="8">Odontopediatría</option>
+              </select>
+              <div>{newAppointmentError.dental_intervention_idError}</div>
+              <select
+                className={
+                  newAppointmentError.doctor_idError === ""
+                    ? "inputBasicDesign"
+                    : "inputBasicDesign inputErrorDesign"
+                } name="doctor_id" onChange={(e) => inputHandler(e)} onBlur={(e) => inputValidate(e)} required={false}> 
+                <option value="">Dentista</option>
+                <option value="1">Dentista general</option>
+                <option value="2">Dentista pediátrico</option>
+              </select>
+              <div>{newAppointmentError.doctor_idError}</div>
+            </div>
+            <div
+              className={activeForm ? "buttonOff buttonOn" : "buttonOff"}
+              onClick={
+                activeForm
+                  ? () => {
+                      addAppointment();
+                    }
+                  : () => {}
               }
-              type="number"
-              maxLength="1"
-              name="dental_intervention_id"
-              placeholder="Id código Tratamiento"
-              required={true}
-              changeFunction={(e) => inputHandler(e)}
-              blurValidateFunction={(e) => inputValidate(e)}
-            />
-            <div>{newAppointmentError.dental_intervention_idError}</div>
-            <InputText
-              className={
-                newAppointmentError.doctor_idError === ""
-                  ? "inputBasicDesign"
-                  : "inputBasicDesign inputErrorDesign"
-              }
-              type="number"
-              maxLength="1"
-              name="doctor_id"
-              placeholder="Id Dentista"
-              required={false}
-              changeFunction={(e) => inputHandler(e)}
-              blurValidateFunction={(e) => inputValidate(e)}
-            />
-            <div>{newAppointmentError.doctor_idError}</div>
-          </div>
-          <div
-            className={activeForm ? "buttonOff buttonOn" : "buttonOff"}
-            onClick={
-              activeForm
-                ? () => {
-                    addAppointment();
-                  }
-                : () => {}
-            }
-          >
-            Solicitar
-          </div>
-        </>
-      )}
+            >
+              Solicitar
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

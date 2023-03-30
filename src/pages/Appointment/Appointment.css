@@ -43,3 +43,9 @@
     font-size: 11px;
     text-align: center;
 }
+
+@media (min-width: 768px){
+    .boxDesignAppointment{
+        width: 30em;
+    }
+}

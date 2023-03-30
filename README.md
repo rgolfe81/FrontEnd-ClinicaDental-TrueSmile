@@ -107,7 +107,7 @@ Revisar citas
 <img src="./src/img/Screenshot_5.jpg">
 
 ## Futuras funcionalidades
-⬜ Crear cita mediante botones seleccionables
+✅ Crear cita mediante botones seleccionables
 ⬜ Editar campos del perfil de usuario
 ⬜ Filtar citas mediante buscador
  

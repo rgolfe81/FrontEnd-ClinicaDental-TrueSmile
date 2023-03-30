@@ -84,36 +84,36 @@ export const Home = () => {
                 <img src={Img_02} alt="imagen tratamientos" className="mt-4" />
               </div>
               <h3 className="mt-4">Tratamientos</h3>
-              <h6 className="mt-4">1. Odontología conservadora:</h6>
+              <h6 className="mt-4"><u>Odontología conservadora</u></h6>
               <p>Obturaciones, reconstrucciones dentales, endodoncias</p>
-              <h6>2. Odontología deportiva:</h6>
+              <h6><u>Odontología deportiva</u></h6>
               <p>Protectores para deportes de contacto.</p>
-              <h6>3. Periodoncia:</h6>
+              <h6><u>Periodoncia:</u></h6>
               <p>
                 Limpiezas - tartrectomía, raspados y alisados radiculares,
                 obturaciones a retro, tratamiento de las encías (gingivectomías,
                 gingivoplastias, ...)
               </p>
-              <h6>4. Prostodoncia:</h6>
+              <h6><u>Prostodoncia:</u></h6>
               <p>
                 Prótesis fija (puentes y coronas), prótesis sobre implantes,
                 prótesis removibles.
               </p>
-              <h6>5. Implantes, cirugía oral:</h6>
+              <h6><u>Implantes, cirugía oral</u></h6>
               <p>
                 extracciones dentales, extracciones de terceros molares (muelas
                 del juicio), extracciones de caninos, extirpación de quistes,
                 frenectomía (cirugía de frenillos), biopsias, implantación de
                 hueso y membrana.
               </p>
-              <h6>6. Ortodoncia:</h6>
+              <h6><u>Ortodoncia</u></h6>
               <p>Fijación con braquets y aparantología funcional</p>
-              <h6>7. Estética dental:</h6>
+              <h6><u>Estética dental</u></h6>
               <p>
                 blanqueamientos dentales, carillas, coronas de porcelana sin
                 metal (circonio, feldespáticas, ...)
               </p>
-              <h6>8. Odontopediatría:</h6>
+              <h6><u>Odontopediatría:</u></h6>
               <p>
                 Obturaciones en dentición temporal, pulpotomías, pulpectomías,
                 extracciones dentales, mantenedores de espacio, fluoraciones

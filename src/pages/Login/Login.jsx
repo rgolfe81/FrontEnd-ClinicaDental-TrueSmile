@@ -7,6 +7,7 @@ import { decodeToken } from "react-jwt";
 import { useDispatch, useSelector } from "react-redux";
 import { login, userData } from "../userSlice";
 import { useNavigate } from "react-router-dom";
+import { FaLock, FaUser } from "react-icons/fa";
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -132,35 +133,41 @@ export const Login = () => {
           <div>{welcome}</div>
         ) : (
           <>
-            <InputText
-              className={
-                credencialesError.emailError === ""
-                  ? "inputBasicDesign"
-                  : "inputBasicDesign inputErrorDesign"
-              }
-              type="email"
-              maxLength="50"
-              name="email"
-              placeholder="Escribe el email"
-              required={true}
-              changeFunction={(e) => inputHandler(e)}
-              blurValidateFunction={(e) => inputValidate(e)}
-            />
+            <div>
+              <FaUser className="iconDesign" />
+              <InputText
+                className={
+                  credencialesError.emailError === ""
+                    ? "inputBasicDesign"
+                    : "inputBasicDesign inputErrorDesign"
+                }
+                type="email"
+                maxLength="50"
+                name="email"
+                placeholder="Escribe el email"
+                required={true}
+                changeFunction={(e) => inputHandler(e)}
+                blurValidateFunction={(e) => inputValidate(e)}
+              />
+            </div>
             <div>{credencialesError.emailError}</div>
-            <InputText
-              className={
-                credencialesError.passwordError === ""
-                  ? "inputBasicDesign"
-                  : "inputBasicDesign inputErrorDesign"
-              }
-              type="password"
-              maxLength="30"
-              name="password"
-              placeholder="Escribe la contraseña"
-              required={true}
-              changeFunction={(e) => inputHandler(e)}
-              blurValidateFunction={(e) => inputValidate(e)}
-            />
+            <div>
+              <FaLock className="iconDesign" />
+              <InputText
+                className={
+                  credencialesError.passwordError === ""
+                    ? "inputBasicDesign"
+                    : "inputBasicDesign inputErrorDesign"
+                }
+                type="password"
+                maxLength="30"
+                name="password"
+                placeholder="Escribe la contraseña"
+                required={true}
+                changeFunction={(e) => inputHandler(e)}
+                blurValidateFunction={(e) => inputValidate(e)}
+              />
+            </div>
             <div>{credencialesError.passwordError}</div>
             <div
               className={activeForm ? "buttonOff buttonOn" : "buttonOff"}

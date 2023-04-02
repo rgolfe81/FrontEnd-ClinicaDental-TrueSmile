@@ -6,6 +6,8 @@ import "./Home.css";
 import { Container, Row, Col } from "react-bootstrap";
 import Img_01 from "../../img/img_01.png";
 import Img_02 from "../../img/img_02.png";
+import Pic01 from "../../img/pic01.png";
+import Pic02 from "../../img/pic02.png";
 import { BsInstagram } from "react-icons/bs";
 import { BsFacebook } from "react-icons/bs";
 import { BsTwitter } from "react-icons/bs";
@@ -41,7 +43,7 @@ export const Home = () => {
 
         <Container className="transparent">
           <Row className={{ margin: 0 }}>
-            <Col sm={12} md={6}>
+            <Col sm={12} md={6} className="insideShadow">
               <h3 className="mt-4">Bienvenido</h3>
               <p className="text-justify">
                 La clínica dental TRUESMILE, abierta desde el año 1981, cuenta
@@ -66,54 +68,95 @@ export const Home = () => {
                 terapéutico personalizado para devolverle una sonrisa saludable.
               </p>
               <h3 className="mt-4">Algunos consejos ...</h3>
-              <h5 className="mt-4">Cepillarse los dientes</h5>
-              <p>
-                Es muy importante cepillarse los dientes después de cada comida
-              </p>
-              <h5>Revisiones</h5>
-              <p>
-                Revisiones periódicas cada 6 meses, la prevención es el mejor
-                tratamiento
-              </p>
+              <div className="d-flex">
+                <div>
+                  <img src={Pic01} alt="imagen consejos 01" className="" />
+                </div>
+                <div>
+                  <h5 className="mt-4">Cepillarse los dientes</h5>
+                  <p>
+                    Es muy importante cepillarse los dientes después de cada
+                    comida
+                  </p>
+                </div>
+              </div>
+              <div className="d-flex">
+                <div>
+                  <img src={Pic02} alt="imagen consejos 02" className="" />
+                </div>
+                <div>
+                  <h5 className="mt-4">Revisiones</h5>
+                  <p>
+                    Revisiones periódicas cada 6 meses, la prevención es el
+                    mejor tratamiento
+                  </p>
+                </div>
+              </div>
               <h5>Ante cualquier molestia...</h5>
               <p>no dude en ponerse en contacto con nosotros</p>
             </Col>
 
-            <Col sm={12} md={6}>
-              <div className="text-center">
-                <img src={Img_02} alt="imagen tratamientos" className="mt-4" />
-              </div>
+            <Col sm={12} md={6} className="insideShadow">
               <h3 className="mt-4">Tratamientos</h3>
-              <h6 className="mt-4"><u>Odontología conservadora</u></h6>
+              <p>
+                Combinando experiencia y tecnología de vanguardia, les ofrecemos
+                el mejor servicio de calidad y confianza. Valoramos toda una
+                serie de factores y establecemos un plan terapéutico
+                personalizado para devolverle una sonrisa saludable.
+              </p>
+              <div className="text-center">
+                <img
+                  src={Img_02}
+                  alt="imagen tratamientos"
+                  className="mt-4 img02Design"
+                />
+              </div>
+              <h6 className="mt-4">
+                <u>Odontología conservadora</u>
+              </h6>
               <p>Obturaciones, reconstrucciones dentales, endodoncias</p>
-              <h6><u>Odontología deportiva</u></h6>
+              <h6>
+                <u>Odontología deportiva</u>
+              </h6>
               <p>Protectores para deportes de contacto.</p>
-              <h6><u>Periodoncia:</u></h6>
+              <h6>
+                <u>Periodoncia:</u>
+              </h6>
               <p>
                 Limpiezas - tartrectomía, raspados y alisados radiculares,
                 obturaciones a retro, tratamiento de las encías (gingivectomías,
                 gingivoplastias, ...)
               </p>
-              <h6><u>Prostodoncia:</u></h6>
+              <h6>
+                <u>Prostodoncia:</u>
+              </h6>
               <p>
                 Prótesis fija (puentes y coronas), prótesis sobre implantes,
                 prótesis removibles.
               </p>
-              <h6><u>Implantes, cirugía oral</u></h6>
+              <h6>
+                <u>Implantes, cirugía oral</u>
+              </h6>
               <p>
                 extracciones dentales, extracciones de terceros molares (muelas
                 del juicio), extracciones de caninos, extirpación de quistes,
                 frenectomía (cirugía de frenillos), biopsias, implantación de
                 hueso y membrana.
               </p>
-              <h6><u>Ortodoncia</u></h6>
+              <h6>
+                <u>Ortodoncia</u>
+              </h6>
               <p>Fijación con braquets y aparantología funcional</p>
-              <h6><u>Estética dental</u></h6>
+              <h6>
+                <u>Estética dental</u>
+              </h6>
               <p>
                 blanqueamientos dentales, carillas, coronas de porcelana sin
                 metal (circonio, feldespáticas, ...)
               </p>
-              <h6><u>Odontopediatría:</u></h6>
+              <h6>
+                <u>Odontopediatría:</u>
+              </h6>
               <p>
                 Obturaciones en dentición temporal, pulpotomías, pulpectomías,
                 extracciones dentales, mantenedores de espacio, fluoraciones

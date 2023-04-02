@@ -2,12 +2,18 @@ import React, { useEffect, useState } from "react";
 import "./Appointment.css";
 import dayjs from "dayjs";
 import Calendar from "react-calendar";
-import { InputText } from "../../common/InputText/InputText";
 import { useNavigate } from "react-router-dom";
 import { addMeAppointment } from "../../services/apiCalls";
 import { checkInputs } from "../../helpers/useful";
 import { useSelector } from "react-redux";
 import { userData } from "../userSlice";
+import { BsFillClipboardFill } from "react-icons/bs";
+import { FaUserNurse } from "react-icons/fa";
+
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faFileMedical } from '@fortawesome/free-duotone-svg-icons';
+// import { duotone } from '@fortawesome/free-duotone-svg-icons';
+
 
 export const Appointment = () => {
   const navigate = useNavigate();
@@ -137,6 +143,7 @@ export const Appointment = () => {
                 ? ((newAppointmentIsValid.dateIsValid = false),
                   (<div>No puedes seleccionar una fecha pasada</div>))
                 : (newAppointmentIsValid.dateIsValid = true)}
+              <BsFillClipboardFill size={20} />{" "}
               <select
                 className={
                   newAppointmentError.dental_intervention_idError === ""
@@ -154,6 +161,7 @@ export const Appointment = () => {
                 <option value="8">Odontopediatría</option>
               </select>
               <div>{newAppointmentError.dental_intervention_idError}</div>
+              <FaUserNurse size={20} />{" "}
               <select
                 className={
                   newAppointmentError.doctor_idError === ""

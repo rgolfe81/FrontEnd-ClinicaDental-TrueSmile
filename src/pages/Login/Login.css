@@ -1,54 +1,58 @@
 .loginDesign {
-    height: 80vh;
-    width: 100vw;
-    background-color: rgb(181, 181, 179);
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
+  height: 80vh;
+  width: 100vw;
+  background-color: rgb(181, 181, 179);
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
 }
 
-.boxDesignLogin{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 3em;
-    padding: 1em;
-    background-color: rgba(255, 255, 255, 0.7) !important;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    border-radius: 1em;
+.boxDesignLogin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3em;
+  padding: 1em;
+  background-color: rgba(255, 255, 255, 0.7) !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border-radius: 1em;
 }
 
-.titleDesign{
-    border-bottom: 0.2em solid rgb(98, 84, 193);
-    width: 15em;
-    height: 2em;
-    margin-bottom: 2em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 2em;
+.titleDesign {
+  border-bottom: 0.2em solid rgb(98, 84, 193);
+  width: 15em;
+  height: 2em;
+  margin-bottom: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2em;
 }
 
-.buttonOff{
-    width: 5em;
-    height: 2em;
-    margin-top: 2em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color:  rgb(156, 151, 192);
-    color: white;
-    border-radius: 0.3em;
+.buttonOff {
+  width: 5em;
+  height: 2em;
+  margin-top: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(156, 151, 192);
+  color: white;
+  border-radius: 0.3em;
 }
 
-.buttonOn{
-    background-color:  rgb(98, 84, 193);
-    cursor: pointer;
+.buttonOn {
+  background-color: rgb(98, 84, 193);
+  cursor: pointer;
 }
 
-.buttonOn:hover{
-    background-color:  rgb(66, 52, 154);
-    transition: 0.5s;
+.iconDesign {
+  color: rgb(98, 84, 193);
+  font-size: 1.5em;
+}
+.buttonOn:hover {
+  background-color: rgb(66, 52, 154);
+  transition: 0.5s;
 }

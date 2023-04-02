@@ -1,62 +1,74 @@
 .homeDesign {
-    height: 80vh;
-    width: 100vw;
-    background-color: rgb(181, 181, 179);
-    display: flex;
-    flex-direction: column;
-    align-items: start;
+  height: 80vh;
+  width: 100vw;
+  background-color: rgb(181, 181, 179);
+  display: flex;
+  flex-direction: column;
+  align-items: start;
 }
 
-.buttonsAppointmentsDesign{
-    display: flex;
-    background-color: rgb(86, 86, 141);
-    justify-content: center;
-    width: 100%;
+.buttonsAppointmentsDesign {
+  display: flex;
+  background-color: rgb(86, 86, 141);
+  justify-content: center;
+  width: 100%;
 }
 
-.imgDesign{
-    width: 26em;
+.imgDesign {
+  width: 26em;
+  box-shadow: 5px 0 5px -5px rgba(0, 0, 0, 0.5),
+    -5px 0 5px -5px rgba(0, 0, 0, 0.5), 0 5px 5px -5px rgba(0, 0, 0, 0.5),
+    0 -5px 5px -5px rgba(0, 0, 0, 0.5);
 }
-.img02Design{
-    width: 22em;
-}
-
-.footerDesign{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-
-}
-.formatFooter{
-    background-color: rgb(98, 84, 193);
-    color: white;
-    padding: 2em;
+.img02Design {
+  width: 20em;
+  box-shadow: 5px 0 5px -5px rgba(0, 0, 0, 0.5),
+    -5px 0 5px -5px rgba(0, 0, 0, 0.5), 0 5px 5px -5px rgba(0, 0, 0, 0.5),
+    0 -5px 5px -5px rgba(0, 0, 0, 0.5);
 }
 
-.socialNetworks{
-    display: flex;
-    justify-content: center;
-    margin-top: 1em;
-    gap: 2em;
-    color: white
+.insideShadow {
+  box-shadow: inset 5px 0 5px -5px rgba(0, 0, 0, 0.5),
+    inset -5px 0 5px -5px rgba(0, 0, 0, 0.5),
+    inset 0 5px 5px -5px rgba(0, 0, 0, 0.5),
+    inset 0 -5px 5px -5px rgba(0, 0, 0, 0.5);
 }
 
-.transparent{
-    background-color: rgba(255, 255, 255, 0.7) !important;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+.footerDesign {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.formatFooter {
+  background-color: rgb(98, 84, 193);
+  color: white;
+  padding: 2em;
 }
 
-@media (max-width: 1000px){
-    .imgDesign{
-        width: 20em;
-    }
-        }
+.socialNetworks {
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+  gap: 2em;
+  color: white;
+}
 
-@media (max-width: 768px){
-    .imgDesign{
-        width: 17em;
-    }
-    .img02Design{
-        width: 16em;
-    }
-        }
+.transparent {
+  background-color: rgba(255, 255, 255, 0.7) !important;
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
+}
+
+@media (max-width: 1000px) {
+  .imgDesign {
+    width: 20em;
+  }
+}
+
+@media (max-width: 768px) {
+  .imgDesign {
+    width: 17em;
+  }
+  .img02Design {
+    width: 16em;
+  }
+}

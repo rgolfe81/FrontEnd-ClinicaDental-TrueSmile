@@ -4,6 +4,15 @@ import { InputText } from "../../common/InputText/InputText";
 import { checkInputs } from "../../helpers/useful";
 import { registerMe } from "../../services/apiCalls";
 import "./Register.css";
+import {
+  FaCity,
+  FaEnvelope,
+  FaLock,
+  FaPhone,
+  FaRegAddressCard,
+  FaUser,
+  FaUserPlus,
+} from "react-icons/fa";
 
 export const Register = () => {
   const navigate = useNavigate();
@@ -125,110 +134,131 @@ export const Register = () => {
           <div>{congratulations}</div>
         ) : (
           <>
-            <InputText
-              className={
-                credencialesError.dniError === ""
-                  ? "inputBasicDesign"
-                  : "inputBasicDesign inputErrorDesign"
-              }
-              type="text"
-              maxLength="9"
-              name="dni"
-              placeholder="Escribe el DNI"
-              required={true}
-              changeFunction={(e) => inputHandler(e)}
-              blurValidateFunction={(e) => inputValidate(e)}
-            />
+            <div>
+              <FaRegAddressCard className="iconDesign" />
+              <InputText
+                className={
+                  credencialesError.dniError === ""
+                    ? "inputBasicDesign"
+                    : "inputBasicDesign inputErrorDesign"
+                }
+                type="text"
+                maxLength="9"
+                name="dni"
+                placeholder="Escribe el DNI"
+                required={true}
+                changeFunction={(e) => inputHandler(e)}
+                blurValidateFunction={(e) => inputValidate(e)}
+              />
+            </div>
             <div>{credencialesError.dniError}</div>
-            <InputText
-              className={
-                credencialesError.nameError === ""
-                  ? "inputBasicDesign"
-                  : "inputBasicDesign inputErrorDesign"
-              }
-              type="text"
-              maxLength="30"
-              name="name"
-              placeholder="Escribe tu nombre"
-              required={true}
-              changeFunction={(e) => inputHandler(e)}
-              blurValidateFunction={(e) => inputValidate(e)}
-            />
+            <div>
+              <FaUser className="iconDesign" />
+              <InputText
+                className={
+                  credencialesError.nameError === ""
+                    ? "inputBasicDesign"
+                    : "inputBasicDesign inputErrorDesign"
+                }
+                type="text"
+                maxLength="30"
+                name="name"
+                placeholder="Escribe tu nombre"
+                required={true}
+                changeFunction={(e) => inputHandler(e)}
+                blurValidateFunction={(e) => inputValidate(e)}
+              />
+            </div>
             <div>{credencialesError.nameError}</div>
-            <InputText
-              className={
-                credencialesError.surnameError === ""
-                  ? "inputBasicDesign"
-                  : "inputBasicDesign inputErrorDesign"
-              }
-              type="text"
-              maxLength="40"
-              name="surname"
-              placeholder="Escribe tus apellidos"
-              required={false}
-              changeFunction={(e) => inputHandler(e)}
-              blurValidateFunction={(e) => inputValidate(e)}
-            />
+            <div>
+              <FaUserPlus className="iconDesign" />
+              <InputText
+                className={
+                  credencialesError.surnameError === ""
+                    ? "inputBasicDesign"
+                    : "inputBasicDesign inputErrorDesign"
+                }
+                type="text"
+                maxLength="40"
+                name="surname"
+                placeholder="Escribe tus apellidos"
+                required={false}
+                changeFunction={(e) => inputHandler(e)}
+                blurValidateFunction={(e) => inputValidate(e)}
+              />
+            </div>
             <div>{credencialesError.surnameError}</div>
-            <InputText
-              className={
-                credencialesError.cityError === ""
-                  ? "inputBasicDesign"
-                  : "inputBasicDesign inputErrorDesign"
-              }
-              type="text"
-              maxLength="30"
-              name="city"
-              placeholder="Escribe tu ciudad"
-              required={false}
-              changeFunction={(e) => inputHandler(e)}
-              blurValidateFunction={(e) => inputValidate(e)}
-            />
+            <div>
+              <FaCity className="iconDesign" />
+              <InputText
+                className={
+                  credencialesError.cityError === ""
+                    ? "inputBasicDesign"
+                    : "inputBasicDesign inputErrorDesign"
+                }
+                type="text"
+                maxLength="30"
+                name="city"
+                placeholder="Escribe tu ciudad"
+                required={false}
+                changeFunction={(e) => inputHandler(e)}
+                blurValidateFunction={(e) => inputValidate(e)}
+              />
+            </div>
             <div>{credencialesError.cityError}</div>
-            <InputText
-              className={
-                credencialesError.phoneError === ""
-                  ? "inputBasicDesign"
-                  : "inputBasicDesign inputErrorDesign"
-              }
-              type="text"
-              maxLength="9"
-              name="phone"
-              placeholder="Escribe tu número de teléfono"
-              required={false}
-              changeFunction={(e) => inputHandler(e)}
-              blurValidateFunction={(e) => inputValidate(e)}
-            />
+            <div>
+              <FaPhone className="iconDesign" />
+              <InputText
+                className={
+                  credencialesError.phoneError === ""
+                    ? "inputBasicDesign"
+                    : "inputBasicDesign inputErrorDesign"
+                }
+                type="text"
+                maxLength="9"
+                name="phone"
+                placeholder="Escribe tu número de teléfono"
+                required={false}
+                changeFunction={(e) => inputHandler(e)}
+                blurValidateFunction={(e) => inputValidate(e)}
+              />
+            </div>
             <div>{credencialesError.phoneError}</div>
-            <InputText
-              className={
-                credencialesError.emailError === ""
-                  ? "inputBasicDesign"
-                  : "inputBasicDesign inputErrorDesign"
-              }
-              type="email"
-              maxLength="50"
-              name="email"
-              placeholder="Escribe el email"
-              required={true}
-              changeFunction={(e) => inputHandler(e)}
-              blurValidateFunction={(e) => inputValidate(e)}
-            />
+            <div>
+              <FaEnvelope className="iconDesign" />
+              <InputText
+                className={
+                  credencialesError.emailError === ""
+                    ? "inputBasicDesign"
+                    : "inputBasicDesign inputErrorDesign"
+                }
+                type="email"
+                maxLength="50"
+                name="email"
+                placeholder="Escribe el email"
+                required={true}
+                changeFunction={(e) => inputHandler(e)}
+                blurValidateFunction={(e) => inputValidate(e)}
+              />
+            </div>
             <div>{credencialesError.emailError}</div>
-            <InputText
-              className={
-                credencialesError.passwordError === ""
-                  ? "inputBasicDesign"
-                  : "inputBasicDesign inputErrorDesign"
-              }
-              type="password"
-              maxLength="30"
-              name="password"
-              placeholder="Escribe la contraseña"
-              required={true}
-              changeFunction={(e) => inputHandler(e)}
-              blurValidateFunction={(e) => inputValidate(e)}
-            />
+            <div>
+              <FaLock className="iconDesign" />
+              <InputText
+                className={
+                  credencialesError.passwordError === ""
+                    ? "inputBasicDesign"
+                    : "inputBasicDesign inputErrorDesign"
+                }
+                type="password"
+                maxLength="30"
+                name="password"
+                placeholder="Escribe la contraseña"
+                required={true}
+                changeFunction={(e) => inputHandler(e)}
+                blurValidateFunction={(e) => inputValidate(e)}
+              />
+            </div>
             <div>{credencialesError.passwordError}</div>
             <div
               className={activeForm ? "buttonOff buttonOn" : "buttonOff"}
